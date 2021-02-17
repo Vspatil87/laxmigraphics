@@ -33,9 +33,9 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <div id="readroot">
+                            <!-- <div id="readroot"> -->
                                 <form id="quickForm" action="/users/add_product_details" method="POST">
-                                    <div class="card-body">
+                                    <div class="card-body"  id="readroot">
                                         <div class="form-group">
                                             <label>Select Main category</label>
                                             <select name='Name' class="form-control" id="category">
@@ -94,12 +94,12 @@
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
                                         <span id="writeroot"></span>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                         <button id="moreFields" type="button" class="btn btn-primary">ADD +</button>
                                     </div>
                                 </form>
-                            </div>
+                            <!-- </div> -->
 
                         </div>
                         <!-- /.card -->
@@ -171,7 +171,6 @@
 
     <script>
         var counter = 0;
-
         jQuery('#moreFields').click('change', function moreFields() {
             counter++;
             var newFields = document.getElementById('readroot').cloneNode(true);
@@ -186,7 +185,6 @@
             var insertHere = document.getElementById('writeroot');
             insertHere.parentNode.insertBefore(newFields, insertHere);
         })
-
     // window.onauxclick = moreFields;
     </script>
 
