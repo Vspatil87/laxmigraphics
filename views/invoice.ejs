@@ -30,19 +30,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Laxmi Graphics Invoice</h3>
-
-                            <!-- <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                    placeholder="Search">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div> -->
                         </div>
                         <!-- <div class="card-body table-responsive p-0" style="height: 300px;"> -->
                         <form action="/users/insert_invoice" method="POST">
@@ -62,49 +49,6 @@
                                                             </option>
                                                             <%}%>
                                                     </select>
-                                                    <!-- <button type="button" class="form-control"
-                                            class="btn dropdown-toggle bs-placeholder btn-default"
-                                            data-toggle="dropdown" role="combobox" aria-owns="bs-select-12"
-                                            aria-haspopup="listbox" aria-expanded="false" data-id="clientid"
-                                            title="Nothing selected">
-                                            <div class="filter-option">
-                                                <div class="filter-option-inner">
-                                                    <div class="filter-option-inner-inner">Nothing selected</div>
-                                                </div>
-                                            </div><span class="bs-caret"><span class="caret"></span></span>
-                                        </button> -->
-                                                    <!-- <div class="dropdown-menu open"
-                                            style="min-height: 55px; max-height: 499px; overflow: hidden;">
-                                            <div class="bs-searchbox"><input type="search" class="form-control"
-                                                    autocomplete="off" role="combobox" aria-label="Search"
-                                                    aria-controls="bs-select-12" aria-autocomplete="list"
-                                                    aria-activedescendant="bs-select-12-1"
-                                                    placeholder="Type to search..."></div>
-                                            <div class="inner open" role="listbox" id="bs-select-12" tabindex="-1"
-                                                style="min-height: 0px; max-height: 443px; overflow-y: auto;">
-                                                <ul class="dropdown-menu inner " role="presentation"
-                                                    style="margin-top: 0px; margin-bottom: 0px;">
-                                                    <li class="dropdown-header optgroup-1"><span class="text">Currently
-                                                            Selected</span></li>
-                                                    <li class="optgroup-1 selected active"><a role="option"
-                                                            class="opt bs-title-option active selected"
-                                                            id="bs-select-12-1" tabindex="0" aria-setsize="1"
-                                                            aria-posinset="1" aria-selected="true"><span
-                                                                class="text"></span></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="status" style="">Start typing to search</div>
-                                        </div> -->
-                                                    <!-- </div><button type="button" class="form-control"
-                                        class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown"
-                                        role="combobox" aria-owns="bs-select-12" aria-haspopup="listbox"
-                                        aria-expanded="false" data-id="clientid" title="Select and begin typing">
-                                        <div class="filter-option">
-                                            <div class="filter-option-inner">
-                                                <div class="filter-option-inner-inner">Select and begin typing</div>
-                                            </div>
-                                        </div><span class="bs-caret"><span class="caret"></span></span>
-                                    </button> -->
                                                     <div class="dropdown-menu open"
                                                         style="min-height: 55px; max-height: 794px; overflow: hidden;">
                                                         <div class="bs-searchbox"><input type="search"
@@ -214,71 +158,12 @@
                                                     style="width: 100%;">
                                                     <div class="dropdown bootstrap-select show-tick bs3">
                                                         <select name="mode" class="form-control">
-                                                            <!-- <select class="form-control" class="selectpicker" data-toggle=""
-                                                        name="allowed_payment_modes[]" data-actions-box="true"
-                                                        multiple="true" data-title="Nothing selected"> -->
                                                             <option value="Cash" selected="">Cash</option>
                                                             <option value="Debit Card">Debit Card</option>
                                                             <option value="Net Banking">Net Banking</option>
                                                             <option value="Cheque">Cheque</option>
                                                             <option value="Credit Card">Credit Card</option>
                                                         </select>
-                                                        <!-- <button type="button"
-                                                        class="btn dropdown-toggle btn-default" data-toggle="dropdown"
-                                                        role="combobox" aria-owns="bs-select-3" aria-haspopup="listbox"
-                                                        aria-expanded="false" title="Bank"> -->
-                                                        <!-- <div class="filter-option">
-                                                            <div class="filter-option-inner">
-                                                                <div class="filter-option-inner-inner">Bank</div>
-                                                            </div>
-                                                        </div><span class="bs-caret"><span class="caret"></span></span>
-                                                    </button> -->
-                                                        <!-- <div class="dropdown-menu open"
-                                                        style="max-height: 440.875px; overflow: hidden; min-height: 54px;">
-                                                        <div class="bs-actionsbox">
-                                                            <div class="btn-group btn-group-sm btn-block"><button
-                                                                    type="button"
-                                                                    class="actions-btn bs-select-all btn btn-default">Select
-                                                                    All</button><button type="button"
-                                                                    class="actions-btn bs-deselect-all btn btn-default">Deselect
-                                                                    All</button></div>
-                                                        </div>
-                                                        <div class="inner open" role="listbox" id="bs-select-3"
-                                                            tabindex="-1" aria-multiselectable="true"
-                                                            style="max-height: 385.875px; overflow-y: auto; min-height: 0px;">
-                                                            <ul class="dropdown-menu inner " role="presentation"
-                                                                style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <li class="selected"><a role="option" id="bs-select-3-0"
-                                                                        tabindex="0" class="selected"
-                                                                        aria-selected="true"><span
-                                                                            class="glyphicon glyphicon-ok check-mark"></span><span
-                                                                            class="text">Bank</span></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div><button type="button" class="btn dropdown-toggle btn-default"
-                                                    data-toggle="dropdown" role="combobox" aria-owns="bs-select-3"
-                                                    aria-haspopup="listbox" aria-expanded="false" title="Bank">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner">
-                                                            <div class="filter-option-inner-inner">Bank</div>
-                                                        </div>
-                                                    </div><span class="bs-caret"><span class="caret"></span></span>
-                                                </button>
-                                                <div class="dropdown-menu open">
-                                                    <div class="bs-actionsbox">
-                                                        <div class="btn-group btn-group-sm btn-block"><button
-                                                                type="button"
-                                                                class="actions-btn bs-select-all btn btn-default">Select
-                                                                All</button><button type="button"
-                                                                class="actions-btn bs-deselect-all btn btn-default">Deselect
-                                                                All</button></div>
-                                                    </div>
-                                                    <div class="inner open" role="listbox" id="bs-select-3"
-                                                        tabindex="-1" aria-multiselectable="true">
-                                                        <ul class="dropdown-menu inner " role="presentation"></ul>
-                                                    </div>
-                                                </div> -->
                                                     </div>
                                                 </div>
                                                 <br>
@@ -287,60 +172,6 @@
                                                         <small class="req text-danger">
                                                         </small>Rate</label>
                                                     <input name="price" type="text" class="form-control">
-                                                    <!-- <div class="dropdown bootstrap-select disabled bs3" style="width: 100%;">
-                                            <div class="dropdown bootstrap-select disabled bs3" style="width: 100%;">
-                                                <select id="currency" name="currency" class="selectpicker" disabled="1"
-                                                    data-show-subtext="1" data-base="1" data-width="100%"
-                                                    data-none-selected-text="Nothing selected" data-live-search="true"
-                                                    tabindex="-98">
-                                                    <option value=""></option>
-                                                    <option value="1" selected="" data-subtext="$">USD</option>
-                                                    <option value="2" data-subtext="€">EUR</option>
-                                                    <option value="3" data-subtext="₹">INR</option>
-                                                </select><button type="button"
-                                                    class="btn dropdown-toggle disabled btn-default"
-                                                    data-toggle="dropdown" role="combobox" aria-owns="bs-select-3"
-                                                    aria-haspopup="listbox" aria-expanded="false" data-id="currency"
-                                                    tabindex="-1" aria-disabled="true" title="USD $">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner">
-                                                            <div class="filter-option-inner-inner">USD<small
-                                                                    class="text-muted">
-                                                                    $</small></div>
-                                                        </div>
-                                                    </div><span class="bs-caret"><span class="caret"></span></span>
-                                                </button>
-                                                <div class="dropdown-menu open">
-                                                    <div class="bs-searchbox"><input type="search" class="form-control"
-                                                            autocomplete="off" role="combobox" aria-label="Search"
-                                                            aria-controls="bs-select-3" aria-autocomplete="list"></div>
-                                                    <div class="inner open" role="listbox" id="bs-select-3"
-                                                        tabindex="-1">
-                                                        <ul class="dropdown-menu inner " role="presentation"></ul>
-                                                    </div>
-                                                </div>
-                                            </div><button type="button" class="btn dropdown-toggle disabled btn-default"
-                                                data-toggle="dropdown" role="combobox" aria-owns="bs-select-3"
-                                                aria-haspopup="listbox" aria-expanded="false" data-id="currency"
-                                                tabindex="-1" aria-disabled="true" title="USD $">
-                                                <div class="filter-option">
-                                                    <div class="filter-option-inner">
-                                                        <div class="filter-option-inner-inner">USD<small
-                                                                class="text-muted">
-                                                                $</small>
-                                                        </div>
-                                                    </div>
-                                                </div><span class="bs-caret"><span class="caret"></span></span>
-                                            </button>
-                                            <div class="dropdown-menu open">
-                                                <div class="bs-searchbox"><input type="search" class="form-control"
-                                                        autocomplete="off" role="combobox" aria-label="Search"
-                                                        aria-controls="bs-select-3" aria-autocomplete="list"></div>
-                                                <div class="inner open" role="listbox" id="bs-select-3" tabindex="-1">
-                                                    <ul class="dropdown-menu inner " role="presentation"></ul>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label">Status</label>
@@ -358,50 +189,6 @@
                                                                 <option value="Declined">Declined</option>
                                                                 <option value="Accepted">Accepted</option>
                                                             </select>
-                                                            <!-- <button type="button" class="btn dropdown-toggle btn-default"
-                                                    data-toggle="dropdown" role="combobox" aria-owns="bs-select-4"
-                                                    aria-haspopup="listbox" aria-expanded="false" title="Draft">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner">
-                                                            <div class="filter-option-inner-inner">Draft</div>
-                                                        </div>
-                                                    </div><span class="bs-caret"><span class="caret"></span></span>
-                                                </button> -->
-                                                            <!-- <div class="dropdown-menu open"
-                                                    style="max-height: 396.875px; overflow: hidden; min-height: 97px;">
-                                                    <div class="inner open" role="listbox" id="bs-select-4"
-                                                        tabindex="-1" aria-activedescendant="bs-select-4-0"
-                                                        style="max-height: 395.875px; overflow-y: auto; min-height: 96px;">
-                                                        <ul class="dropdown-menu inner " role="presentation"
-                                                            style="margin-top: 0px; margin-bottom: 0px;">
-                                                            <li class="selected active"><a role="option"
-                                                                    id="bs-select-4-0" tabindex="0" aria-setsize="5"
-                                                                    aria-posinset="1" class="active selected"
-                                                                    aria-selected="true"><span
-                                                                        class="text">Draft</span></a></li>
-                                                            <li><a role="option" id="bs-select-4-1" tabindex="0"
-                                                                    aria-setsize="5" aria-posinset="2"><span
-                                                                        class="text">Sent</span></a></li>
-                                                            <li><a role="option" id="bs-select-4-2" tabindex="0"
-                                                                    aria-setsize="5" aria-posinset="3"><span
-                                                                        class="text">Expired</span></a></li>
-                                                            <li><a role="option" id="bs-select-4-3" tabindex="0"
-                                                                    aria-setsize="5" aria-posinset="4"><span
-                                                                        class="text">Declined</span></a></li>
-                                                            <li><a role="option" id="bs-select-4-4" tabindex="0"><span
-                                                                        class="text">Accepted</span></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div> -->
-                                                            <!-- </div><button type="button" class="btn dropdown-toggle btn-default"
-                                                data-toggle="dropdown" role="combobox" aria-owns="bs-select-4"
-                                                aria-haspopup="listbox" aria-expanded="false" title="Draft">
-                                                <div class="filter-option">
-                                                    <div class="filter-option-inner">
-                                                        <div class="filter-option-inner-inner">Draft</div>
-                                                    </div>
-                                                </div><span class="bs-caret"><span class="caret"></span></span>
-                                            </button> -->
                                                             <div class="dropdown-menu open">
                                                                 <div class="inner open" role="listbox" id="bs-select-4"
                                                                     tabindex="-1">
@@ -420,69 +207,6 @@
                                                                 style="width: 100%;">
                                                                 <input name="saleagent" class="form-control"
                                                                     type="text">
-                                                                <!-- <select class="form-control" id="sale_agent"
-                                                                name="sale_agent" class="selectpicker" data-width="100%"
-                                                                data-none-selected-text="Nothing selected"
-                                                                data-live-search="true" tabindex="-98">
-                                                                <option value=""></option>
-                                                                <option value="1">agent 1</option>
-                                                            </select> -->
-                                                                <!-- <button type="button"
-                                                        class="btn dropdown-toggle btn-default bs-placeholder"
-                                                        data-toggle="dropdown" role="combobox" aria-owns="bs-select-5"
-                                                        aria-haspopup="listbox" aria-expanded="false"
-                                                        data-id="sale_agent" title="Nothing selected">
-                                                        <div class="filter-option">
-                                                            <div class="filter-option-inner">
-                                                                <div class="filter-option-inner-inner">Nothing selected
-                                                                </div>
-                                                            </div>
-                                                        </div><span class="bs-caret"><span class="caret"></span></span>
-                                                    </button> -->
-                                                                <!-- <div class="dropdown-menu open"
-                                                        style="max-height: 193.875px; overflow: hidden; min-height: 55px;">
-                                                        <div class="bs-searchbox"><input type="search"
-                                                                class="form-control" autocomplete="off" role="combobox"
-                                                                aria-label="Search" aria-controls="bs-select-5"
-                                                                aria-autocomplete="list"
-                                                                aria-activedescendant="bs-select-5-0"></div>
-                                                        <div class="inner open" role="listbox" id="bs-select-5"
-                                                            tabindex="-1"
-                                                            style="max-height: 137.875px; overflow-y: auto; min-height: 0px;">
-                                                            <ul class="dropdown-menu inner " role="presentation"
-                                                                style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <li class="selected active"><a role="option"
-                                                                        id="bs-select-5-0" tabindex="0" aria-setsize="2"
-                                                                        aria-posinset="1" class="active selected"
-                                                                        aria-selected="true"><span
-                                                                            class="text"></span></a></li>
-                                                                <li><a role="option" id="bs-select-5-1" tabindex="0"
-                                                                        aria-setsize="2" aria-posinset="2"><span
-                                                                            class="text">Juber Shaikh</span></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div> -->
-                                                                <!-- </div><button type="button"
-                                                    class="btn dropdown-toggle btn-default bs-placeholder"
-                                                    data-toggle="dropdown" role="combobox" aria-owns="bs-select-5"
-                                                    aria-haspopup="listbox" aria-expanded="false" data-id="sale_agent"
-                                                    title="Nothing selected">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner">
-                                                            <div class="filter-option-inner-inner">Nothing selected
-                                                            </div>
-                                                        </div>
-                                                    </div><span class="bs-caret"><span class="caret"></span></span>
-                                                </button> -->
-                                                                <!-- <div class="dropdown-menu open">
-                                                    <div class="bs-searchbox"><input type="search" class="form-control"
-                                                            autocomplete="off" role="combobox" aria-label="Search"
-                                                            aria-controls="bs-select-5" aria-autocomplete="list"></div>
-                                                    <div class="inner open" role="listbox" id="bs-select-5"
-                                                        tabindex="-1">
-                                                        <ul class="dropdown-menu inner " role="presentation"></ul>
-                                                    </div>
-                                                </div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -500,130 +224,13 @@
                                                                     <option value="5%">5%</option>
                                                                     <option value="10%">10%</option>
                                                                 </select>
-                                                                <!-- <button type="button"
-                                                        class="btn dropdown-toggle btn-default" data-toggle="dropdown"
-                                                        role="combobox" aria-owns="bs-select-6" aria-haspopup="listbox"
-                                                        aria-expanded="false" title="No discount">
-                                                        <div class="filter-option">
-                                                            <div class="filter-option-inner">
-                                                                <div class="filter-option-inner-inner">No discount</div>
-                                                            </div>
-                                                        </div><span class="bs-caret"><span class="caret"></span></span>
-                                                    </button> -->
-                                                                <!-- <div class="dropdown-menu open"
-                                                        style="max-height: 181.875px; overflow: hidden; min-height: 0px;">
-                                                        <div class="inner open" role="listbox" id="bs-select-6"
-                                                            tabindex="-1" aria-activedescendant="bs-select-6-0"
-                                                            style="max-height: 180.875px; overflow-y: auto; min-height: 0px;">
-                                                            <ul class="dropdown-menu inner " role="presentation"
-                                                                style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <li class="selected active"><a role="option"
-                                                                        id="bs-select-6-0" tabindex="0" aria-setsize="3"
-                                                                        aria-posinset="1" class="active selected"
-                                                                        aria-selected="true"><span class="text">No
-                                                                            discount</span></a></li>
-                                                                <li><a role="option" id="bs-select-6-1" tabindex="0"
-                                                                        aria-setsize="3" aria-posinset="2"><span
-                                                                            class="text">Before Tax</span></a></li>
-                                                                <li><a role="option" id="bs-select-6-2" tabindex="0"
-                                                                        aria-setsize="3" aria-posinset="3"><span
-                                                                            class="text">After Tax</span></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div> -->
-                                                                <!-- </div><button type="button" class="btn dropdown-toggle btn-default"
-                                                    data-toggle="dropdown" role="combobox" aria-owns="bs-select-6"
-                                                    aria-haspopup="listbox" aria-expanded="false" title="No discount">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner">
-                                                            <div class="filter-option-inner-inner">No discount</div>
-                                                        </div>
-                                                    </div><span class="bs-caret"><span class="caret"></span></span>
-                                                </button> -->
-                                                                <!-- <div class="dropdown-menu open">
-                                                    <div class="inner open" role="listbox" id="bs-select-6"
-                                                        tabindex="-1">
-                                                        <ul class="dropdown-menu inner " role="presentation"></ul>
-                                                    </div>
-                                                </div> -->
+                                                       
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="form-group" app-field-wrapper="adminnote"><label for="adminnote"
-                                                    class="control-label">Note</label><textarea id="adminnote"
-                                                    name="adminnote" class="form-control" rows="4"></textarea></div> -->
                                             </div>
                                             <div>
-                                                <!-- <label> Add Item </label>
-                                            <select class="form-control">
-                                                <option class="form-control" value="Item 1"> Item 1</option>
-                                                <option class="form-control" value="Item 2"> Item 2
-                                                </option>
-                                            </select> -->
-                                                <!-- <button type="button"
-                                                                class="btn dropdown-toggle btn-default bs-placeholder"
-                                                                data-toggle="dropdown" role="combobox"
-                                                                aria-owns="bs-select-9" aria-haspopup="listbox"
-                                                                aria-expanded="false" data-id="item_select"
-                                                                title="Add Item">
-                                                                <div class="filter-option">
-                                                                    <div class="filter-option-inner">
-                                                                        <div class="filter-option-inner-inner">Add Item
-                                                                        </div>
-                                                                    </div>
-                                                                </div><span class="bs-caret"><span
-                                                                        class="caret"></span></span>
-                                                            </button> -->
-                                                <!-- <div class="dropdown-menu open"
-                                                                style="max-height: 229.875px; overflow: hidden; min-height: 55px;">
-                                                                <div class="bs-searchbox"><input type="search"
-                                                                        class="form-control" autocomplete="off"
-                                                                        role="combobox" aria-label="Search"
-                                                                        aria-controls="bs-select-9"
-                                                                        aria-autocomplete="list"
-                                                                        aria-activedescendant="bs-select-9-0"></div>
-                                                                <div class="inner open" role="listbox" id="bs-select-9"
-                                                                    tabindex="-1"
-                                                                    style="max-height: 173.875px; overflow-y: auto; min-height: 0px;">
-                                                                    <ul class="dropdown-menu inner " role="presentation"
-                                                                        style="margin-top: 0px; margin-bottom: 0px;">
-                                                                        <li class="selected active"><a role="option"
-                                                                                id="bs-select-9-0" tabindex="0"
-                                                                                aria-setsize="1" aria-posinset="1"
-                                                                                class="active selected"
-                                                                                aria-selected="true"><span
-                                                                                    class="glyphicon glyphicon-ok check-mark"></span><span
-                                                                                    class="text"></span></a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div> -->
-                                                <!-- </div><button type="button"
-                                                            class="btn dropdown-toggle btn-default bs-placeholder"
-                                                            data-toggle="dropdown" role="combobox"
-                                                            aria-owns="bs-select-9" aria-haspopup="listbox"
-                                                            aria-expanded="false" data-id="item_select"
-                                                            title="Add Item">
-                                                            <div class="filter-option">
-                                                                <div class="filter-option-inner">
-                                                                    <div class="filter-option-inner-inner">Add Item
-                                                                    </div>
-                                                                </div>
-                                                            </div><span class="bs-caret"><span
-                                                                    class="caret"></span></span>
-                                                        </button> -->
-                                                <!-- <div class="dropdown-menu open">
-                                                            <div class="bs-searchbox"><input type="search"
-                                                                    class="form-control" autocomplete="off"
-                                                                    role="combobox" aria-label="Search"
-                                                                    aria-controls="bs-select-9"
-                                                                    aria-autocomplete="list"></div>
-                                                            <div class="inner open" role="listbox" id="bs-select-9"
-                                                                tabindex="-1">
-                                                                <ul class="dropdown-menu inner " role="presentation">
-                                                                </ul>
-                                                            </div>
-                                                        </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -636,16 +243,6 @@
                                                 rows="3"></textarea>
                                         </div>
                                     </div>
-                                    <!-- <form method="post" action="/cgi-bin/show_params.cgi">
-                                    <input class="form-control" type="button" id="moreFields"
-                                        value="Add New Quotation" />
-                                    <br>
-                                    <input class="form-control" type="button" value="Print"
-                                        onclick="CopyElem();PrintElem('#container')" />
-                                    <span id="writeroot"></span>
-
-                                    <div id="copyoutput" style="display: none;"></div>
-                                </form> -->
                                 </div>
                                 <table id="readroot"
                                     class="table invoice-items-table items table-main-invoice-edit has-calculations no-mtop">
@@ -679,8 +276,6 @@
                                             <td>
                                                 <div contenteditable="true" id="qty" name="quantity"
                                                     class="form-control"> </div><br>
-                                                <!-- <input type="text" placeholder="Unit" data-toggle="tooltip" data-title="e.q kg, lots, packs"
-                                    name="unit" class="form-control input-transparent text-right"> -->
                                             </td>
                                             <td>
                                                 <div contenteditable="true" id="unit" name="unit"
@@ -703,16 +298,6 @@
 
                                             <td></td>
                                             <td>
-                                                <!-- <form method="post" action="/cgi-bin/show_params.cgi">
-                                    <input class="form-control" type="button" id="moreFields"
-                                        value="Add" />
-                                    <br>
-                                    <input class="form-control" type="button" value="Print"
-                                        onclick="CopyElem();PrintElem('#container')" />
-                                    <span id="writeroot"></span>
-
-                                    <div id="copyoutput" style="display: none;"></div>
-                                </form> -->
                                             </td>
 
                                         </tr>
