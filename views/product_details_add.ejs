@@ -33,73 +33,72 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <!-- <div id="readroot"> -->
-                                <form id="quickForm" action="/users/add_product_details" method="POST">
-                                    <div class="card-body"  id="readroot">
-                                        <div class="form-group">
-                                            <label>Select Main category</label>
-                                            <select name='Name' class="form-control" id="category">
-                                                <% for(var i=0 ; i < result.length ; i++){%>
-                                                    <option value="<%=result[i].Name%>">
-                                                        <%= result[i].Name%>
-                                                    </option>
-                                                    <%}%>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Sub Category</label>
-                                            <select id="subcategory" name='selected_sub_category' class="form-control">
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Product</label>
-                                            <select id="product" name='selected_product' class="form-control">
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Additional Category</label>
-                                            <input type="text" name="additional_category" class="form-control"
-                                                placeholder="enter additional category ..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Specification</label>
-                                            <input type="text" name="specification" class="form-control"
-                                                placeholder="enter specification ..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Size</label>
-                                            <input type="text" name="size" class="form-control"
-                                                placeholder="enter size ..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Unit</label>
-                                            <input type="text" name="unit" class="form-control"
-                                                placeholder="enter unit ..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Rate</label>
-                                            <input type="text" name="rate" class="form-control"
-                                                placeholder="enter rate ..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Quantity</label>
-                                            <input type="text" name="quantity" class="form-control"
-                                                placeholder="enter quantity ..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Amount</label>
-                                            <input type="text" name="amount" class="form-control"
-                                                placeholder="enter price ..." required>
-                                        </div>
+                            <form id="quickForm" action="/users/add_product_details" method="POST">
+                                <div class="card-body" id="readroot">
+                                    <div class="form-group">
+                                        <label>Select Main category</label>
+                                        <select name='Name' class="form-control" id="category">
+                                            <% for(var i=0 ; i < result.length ; i++){%>
+                                                <option value="<%=result[i].Name%>">
+                                                    <%= result[i].Name%>
+                                                </option>
+                                                <%}%>
+                                        </select>
                                     </div>
-                                    <!-- /.card-body -->
-                                    <div class="card-footer">
-                                        <span id="writeroot"></span>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button id="moreFields" type="button" class="btn btn-primary">ADD +</button>
+                                    <div class="form-group">
+                                        <label>Sub Category</label>
+                                        <select id="subcategory" name='selected_sub_category' class="form-control">
+                                        </select>
                                     </div>
-                                </form>
+                                    <div class="form-group">
+                                        <label>Product</label>
+                                        <select id="product" name='selected_product' class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Additional Category</label>
+                                        <input type="text" name="additional_category" class="form-control"
+                                            placeholder="enter additional category ..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Specification</label>
+                                        <input type="text" name="specification" class="form-control"
+                                            placeholder="enter specification ..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Size</label>
+                                        <input type="text" name="size" class="form-control" placeholder="enter size ..."
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Unit</label>
+                                        <input type="text" name="unit" class="form-control" placeholder="enter unit ..."
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rate</label>
+                                        <input type="text" name="rate" class="form-control" placeholder="enter rate ..."
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="text" name="quantity" class="form-control"
+                                            placeholder="enter quantity ..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input type="text" name="amount" class="form-control"
+                                            placeholder="enter price ..." required>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <span id="writeroot"></span>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button id="moreFields" type="button" class="btn btn-primary">ADD +</button>
+                                </div>
+                            </form>
                             <!-- </div> -->
-
                         </div>
                         <!-- /.card -->
                     </div>

@@ -853,19 +853,20 @@ router.post('/select_saddress', function (req, res, next) {
 });
 
 router.post('/insert_quotation', function (req, res, next) {
+  console.log('customer_name = ' , req.body.customer_name);
   knex('customer').select('*').where('Company', req.body.Company)
     .then(customer => {
       var quotation = {
-        customer: customer[0].Customer_name,
+        customer:req.body.customer_name,
         company: req.body.Company,
-        bill_address: customer[0].Address,
-        bill_city: customer[0].City,
-        bill_state: customer[0].State,
-        bill_zip_code: customer[0].Zip_code,
-        ship_address: customer[0].Address,
-        ship_city: customer[0].City,
-        ship_state: customer[0].State,
-        ship_zip_code: customer[0].Zip_code,
+        bill_address: req.body.baddress,
+        bill_city: req.body.bcity,
+        bill_state: req.body.bstate,
+        bill_zip_code: req.body.bzipcode,
+        ship_address:req.body.saddress,
+        ship_city: req.body.scity,
+        ship_state:req.body.sstate,
+        ship_zip_code: req.body.szipcode,
         estimate_date: req.body.date,
         expiry_date: req.body.expirydate,
         rate: req.body.price,
@@ -877,8 +878,22 @@ router.post('/insert_quotation', function (req, res, next) {
       console.log('insertvalues = ', quotation);
       knex('quotation').insert(quotation).then(insertquotation => {
         console.log('insertquo = ', insertquotation);
-        res.redirect('quotation');
+        // res.redirect('quotation');
       })
+    })
+
+    var qattributes = {
+      estimate_no : req.body.number,
+      item : req.body.product_name,
+      quantity: req.body.quantity,
+      unit : req.body.unit,
+      rate : req.body.rate,
+      tax : req.body.GST,
+      amount : req.body.amount,
+    }
+    knex('quotation_attributes').insert(qattributes).then(insertqattributes => {
+      console.log('insertattributes = ', insertqattributes);
+      res.redirect('quotation');
     })
 })
 
@@ -934,16 +949,16 @@ router.post('/insert_invoice', function (req, res, next) {
   knex('customer').select('*').where('Company', req.body.Company)
     .then(customer => {
       var invoice = {
-        customer: customer[0].Customer_name,
+        customer: req.body.customer_name,
         company: req.body.Company,
-        bill_address: customer[0].Address,
-        bill_city: customer[0].City,
-        bill_state: customer[0].State,
-        bill_zip_code: customer[0].Zip_code,
-        ship_address: customer[0].Address,
-        ship_city: customer[0].City,
-        ship_state: customer[0].State,
-        ship_zip_code: customer[0].Zip_code,
+        bill_address: req.body.baddress,
+        bill_city: req.body.bcity,
+        bill_state: req.body.bstate,
+        bill_zip_code: req.body.bzipcode,
+        ship_address:req.body.saddress,
+        ship_city: req.body.scity,
+        ship_state:req.body.sstate,
+        ship_zip_code: req.body.szipcode,
         payment_mode: req.body.mode,
         invoice_date: req.body.date,
         due_date: req.body.duedate,
@@ -956,8 +971,22 @@ router.post('/insert_invoice', function (req, res, next) {
       console.log('insertvalues = ', invoice);
       knex('invoice').insert(invoice).then(insertinvoice => {
         console.log('insertinvoice = ', insertinvoice);
-        res.redirect('invoice');
+        // res.redirect('invoice');
       })
+    })
+
+    var iattributes = {
+      invoice_no : req.body.number,
+      item : req.body.product_name,
+      quantity: req.body.quantity,
+      unit : req.body.unit,
+      rate : req.body.rate,
+      tax : req.body.GST,
+      amount : req.body.amount,
+    }
+    knex('invoice_attributes').insert(iattributes).then(insertiattributes => {
+      console.log('insertiattributes = ', insertiattributes);
+      res.redirect('invoice');
     })
 })
 

@@ -42,7 +42,7 @@
                                             <div class="dropdown bootstrap-select ajax-search bs3" style="width: 100%;">
                                                 <div class="dropdown bootstrap-select ajax-search bs3"
                                                     style="width: 100%;">
-                                                    <select id="customer" class="form-control">
+                                                    <select id="customer" name="customer_name" class="form-control">
                                                         <% for(var i=0 ; i < result.length ; i++){%>
                                                             <option value="<%=result[i].Customer_name%>">
                                                                 <%= result[i].Customer_name%>
@@ -55,28 +55,27 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <p class="bold">Bill To</p>
-                                                    <div type="text" name="baddress" contenteditable="true" id="address"
-                                                        class="form-control"> </div>
+                                                    <input type="text" class="form-control" id="address"
+                                                        name="baddress">
                                                     <br>
-                                                    <div contenteditable="true" id="city" name="bcity"
+                                                    <input type="text" class="form-control" id="city" name="bcity">
+                                                    <br>
+                                                    <input type="text" id="state" name="bstate" class="form-control">
+                                                    <br>
+                                                    <input type="text" id="zip_code" name="bzipcode"
                                                         class="form-control">
-                                                    </div><br>
-                                                    <div contenteditable="true" id="state" name="bstate"
-                                                        class="form-control"> </div><br>
-                                                    <div contenteditable="true" id="zip_code" name="bzipcode"
-                                                        class="form-control"> </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p class="bold">Ship to</p>
-                                                    <div contenteditable="true" id="saddress" name="saddress"
-                                                        class="form-control"> </div>
+                                                    <input type="text" id="saddress" name="saddress"
+                                                        class="form-control">
                                                     <br>
-                                                    <div contenteditable="true" id="scity" name="scity"
-                                                        class="form-control"> </div><br>
-                                                    <div contenteditable="true" id="sstate" name="sstate"
-                                                        class="form-control"> </div><br>
-                                                    <div contenteditable="true" id="szip_code" name="szip_code"
-                                                        class="form-control"> </div>
+                                                    <input type="text" id="scity" name="scity" class="form-control">
+                                                    <br>
+                                                    <input type="text" id="sstate" name="sstate"
+                                                        class="form-control"><br>
+                                                    <input type="text" id="szip_code" name="szipcode"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <br>
@@ -87,11 +86,10 @@
                                                     <span class="input-group-addon , form-control">
                                                         EST- </span>
                                                     <input type="text" name="number" class="form-control pending"
-                                                        value="<%= estimate_no + 1%>" data-isedit="false"
+                                                        value="<%= estimate_no + 1 %>" data-isedit="false"
                                                         data-original-number="false" aria-invalid="false">
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group" app-field-wrapper="date"><label for="date"
@@ -197,6 +195,7 @@
                                             <th width="10%" align="right" class="qty">Unit</th>
                                             <th width="15%" align="right">Rate</th>
                                             <th width="20%" align="right">Tax</th>
+                                            <th width="10%" align="right">Sum</th>
                                             <th width="10%" align="right">Amount</th>
                                         </tr>
                                     </thead>
@@ -204,7 +203,7 @@
                                         <tr class="main">
                                             <td></td>
                                             <td>
-                                                <select id="product" class="form-control">
+                                                <select id="product" name="product_name" class="form-control">
                                                     <% for(var i=0 ; i < product_name.length ; i++){%>
                                                         <option value="<%=product_name[i].product_name%>">
                                                             <%= product_name[i].product_name%>
@@ -213,27 +212,30 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <div contenteditable="true" id="qty" name="quantity"
-                                                    class="form-control"> </div><br>
+                                                <input type="text" id="qty" name="quantity" class="form-control"
+                                                    placeholder="qty"> <br>
                                             </td>
                                             <td>
-                                                <div contenteditable="true" id="unit" name="unit" class="form-control">
-                                                </div><br>
+                                                <input type="text" id="unit" name="unit" class="form-control"
+                                                    placeholder="unit">
+                                                <br>
                                             </td>
                                             <td>
-                                                <div contenteditable="true" id="rate" name="rate" class="form-control">
-                                                </div><br>
+                                                <input type="text" id="rate" name="rate" class="form-control"
+                                                    placeholder="rate">
+                                                <br>
                                             </td>
                                             <td>
                                                 <input type="text" name="GST" class="form-control" placeholder="GST">
                                             </td>
                                             <td>
-                                                <div onclick="" contenteditable="true" id="amount" name="amount"
+                                                <input onclick="preamount()" type="button" value="Click to Sum"
                                                     class="form-control">
-                                                </div><br>
                                             </td>
-                                            <td></td>
                                             <td>
+                                                <input type="text" id="amount" name="amount" class="form-control"
+                                                    placeholder="total">
+                                                <br>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -261,16 +263,16 @@
         </section>
     </div>
 
-    <script>
-        jQuery('#rate').change('change',
-            function () {
-                var rate = document.getElementById('rate').val();
-                var unit = document.getElementById('unit').val();
-                var quantity = document.getElementById('quantity').val();
-                var preamount = (rate * unit * quantity)
-                console.log('preamount = ', preamount);
-            })
-    </script>
+    <!-- ----------------------------------------------Script to calculate the preamount-----------------------------------------------------------     -->
+
+    <Script>
+        function preamount() {
+            var unit = document.getElementById('unit').value;
+            var rate = document.getElementById('rate').value;
+            var quantity = document.getElementById('qty').value;
+            document.getElementById('amount').value = parseInt(unit) * parseInt(rate) * parseInt(quantity);
+        }
+    </Script>
 
     <!-- ----------------------------------------------Selection of product details(unit , rate , qty)--------------------------------------------     -->
 
@@ -293,13 +295,13 @@
                         preamount += (formoption * formoption2 * formoption3);
                     }
                     $('#qty').empty();
-                    $('#qty').append(formoption);
+                    $('#qty').val(formoption).val();
                     $('#unit').empty();
-                    $('#unit').append(formoption2);
+                    $('#unit').val(formoption2).val();
                     $('#rate').empty();
-                    $('#rate').append(formoption3);
+                    $('#rate').val(formoption3).val();
                     $('#amount').empty();
-                    $('#amount').append(preamount);
+                    $('#amount').val(preamount).val();
                 }
             );
         })
@@ -347,20 +349,19 @@
                     for (var i in result.address) {
                         var id = result.address[i].Address;
                         console.log('address =', result.address[i].Address);
-                        // formoption += "<option value='" + result.address[i].Address + "'>" + result.address[i].Address + "</option>";
                         formoption += result.address[i].Address;
                         formoption2 += result.address[i].City;
                         formoption3 += result.address[i].State;
                         formoption4 += result.address[i].Zip_code;
                     }
                     $('#saddress').empty();
-                    $('#saddress').append(formoption).val();
+                    $('#saddress').val(formoption).val();
                     $('#scity').empty();
-                    $('#scity').append(formoption2);
+                    $('#scity').val(formoption2).val();
                     $('#sstate').empty();
-                    $('#sstate').append(formoption3);
+                    $('#sstate').val(formoption3).val();
                     $('#szip_code').empty();
-                    $('#szip_code').append(formoption4);
+                    $('#szip_code').val(formoption4).val();
                 }
             );
         })
@@ -391,13 +392,13 @@
                         formoption4 += result.address[i].Zip_code;
                     }
                     $('#address').empty();
-                    $('#address').append(formoption);
+                    $('#address').val(formoption).val();
                     $('#city').empty();
-                    $('#city').append(formoption2);
+                    $('#city').val(formoption2).val();
                     $('#state').empty();
-                    $('#state').append(formoption3);
+                    $('#state').val(formoption3).val();
                     $('#zip_code').empty();
-                    $('#zip_code').append(formoption4);
+                    $('#zip_code').val(formoption4).val();
                 }
             );
         })
@@ -407,7 +408,6 @@
 
     <script>
         var counter = 0;
-
         jQuery('#moreFields').click('change', function moreFields() {
             counter++;
             var newFields = document.getElementById('readroot').cloneNode(true);
@@ -422,8 +422,6 @@
             var insertHere = document.getElementById('writeroot');
             insertHere.parentNode.insertBefore(newFields, insertHere);
         })
-
-        // window.onauxclick = moreFields;
     </script>
 
     <%- include('footer')%>
