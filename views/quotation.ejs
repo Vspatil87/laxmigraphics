@@ -65,15 +65,6 @@
                                                         class="form-control"> </div><br>
                                                     <div contenteditable="true" id="zip_code" name="bzipcode"
                                                         class="form-control"> </div>
-
-                                                    <!-- <address>
-                                                    <span class="form-control" class="billing_street"></span><br>
-                                                    <span class="form-control" class="billing_city"></span><br>
-                                                    <span class="form-control" class="billing_state"></span>
-                                                    <br>
-                                                    <span class="billing_country"></span>
-                                                    <span class="billing_zip"></span>
-                                                </address> -->
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p class="bold">Ship to</p>
@@ -111,7 +102,6 @@
                                                                 name="date" class="form-control datepicker"
                                                                 autocomplete="off">
                                                             <div class="input-group-addon">
-                                                                <!-- <i class="fa fa-calendar calendar-icon"></i> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -123,7 +113,6 @@
                                                                 name="expirydate" class="form-control datepicker"
                                                                 autocomplete="off">
                                                             <div class="input-group-addon">
-                                                                <!-- <i class="fa fa-calendar calendar-icon"></i> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -135,7 +124,6 @@
                                             <select id="company" name='Company' class="form-control">
                                             </select>
                                             <br>
-
                                             <div>
                                                 <label>Rate</label>
                                                 <input type="text" name="price" class="form-control">
@@ -186,52 +174,6 @@
                                                                 <option value="5%">5%</option>
                                                                 <option value="10%">10%</option>
                                                             </select>
-                                                            <!-- <button type="button"
-                                                        class="btn dropdown-toggle btn-default" data-toggle="dropdown"
-                                                        role="combobox" aria-owns="bs-select-6" aria-haspopup="listbox"
-                                                        aria-expanded="false" title="No discount">
-                                                        <div class="filter-option">
-                                                            <div class="filter-option-inner">
-                                                                <div class="filter-option-inner-inner">No discount</div>
-                                                            </div>
-                                                        </div><span class="bs-caret"><span class="caret"></span></span>
-                                                    </button> -->
-                                                            <!-- <div class="dropdown-menu open"
-                                                        style="max-height: 181.875px; overflow: hidden; min-height: 0px;">
-                                                        <div class="inner open" role="listbox" id="bs-select-6"
-                                                            tabindex="-1" aria-activedescendant="bs-select-6-0"
-                                                            style="max-height: 180.875px; overflow-y: auto; min-height: 0px;">
-                                                            <ul class="dropdown-menu inner " role="presentation"
-                                                                style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <li class="selected active"><a role="option"
-                                                                        id="bs-select-6-0" tabindex="0" aria-setsize="3"
-                                                                        aria-posinset="1" class="active selected"
-                                                                        aria-selected="true"><span class="text">No
-                                                                            discount</span></a></li>
-                                                                <li><a role="option" id="bs-select-6-1" tabindex="0"
-                                                                        aria-setsize="3" aria-posinset="2"><span
-                                                                            class="text">Before Tax</span></a></li>
-                                                                <li><a role="option" id="bs-select-6-2" tabindex="0"
-                                                                        aria-setsize="3" aria-posinset="3"><span
-                                                                            class="text">After Tax</span></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div> -->
-                                                            <!-- </div><button type="button" class="btn dropdown-toggle btn-default"
-                                                    data-toggle="dropdown" role="combobox" aria-owns="bs-select-6"
-                                                    aria-haspopup="listbox" aria-expanded="false" title="No discount">
-                                                    <div class="filter-option">
-                                                        <div class="filter-option-inner">
-                                                            <div class="filter-option-inner-inner">No discount</div>
-                                                        </div>
-                                                    </div><span class="bs-caret"><span class="caret"></span></span>
-                                                </button> -->
-                                                            <!-- <div class="dropdown-menu open">
-                                                    <div class="inner open" role="listbox" id="bs-select-6"
-                                                        tabindex="-1">
-                                                        <ul class="dropdown-menu inner " role="presentation"></ul>
-                                                    </div>
-                                                </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -241,16 +183,7 @@
                                                     name="adminnote" class="form-control" rows="4"></textarea></div>
                                         </div>
                                     </div>
-                                    <!-- <form method="post" action="/cgi-bin/show_params.cgi">
-                                    <input class="form-control" type="button" id="moreFields" value="Add New Quotation"/>
-                                    <br>
-                                    <input class="form-control" type="button" value="Print" onclick="CopyElem();PrintElem('#container')" />
-                                    <span id="writeroot"></span>
-
-                                    <div id="copyoutput" style="display: none;"></div>
-                                </form> -->
                                 </div>
-                                <!-- <form method="POST" action="/users/quotation_attributes"> -->
                                 <table id="readroot"
                                     class="table invoice-items-table items table-main-invoice-edit has-calculations no-mtop">
                                     <thead>
@@ -265,15 +198,12 @@
                                             <th width="15%" align="right">Rate</th>
                                             <th width="20%" align="right">Tax</th>
                                             <th width="10%" align="right">Amount</th>
-                                            <!-- <th align="center"><i class="fa fa-cog"></i></th> -->
                                         </tr>
                                     </thead>
                                     <tbody class="ui-sortable">
                                         <tr class="main">
                                             <td></td>
                                             <td>
-                                                <!-- <input type="text" name="item" class="form-control"
-                                                        placeholder="item"> -->
                                                 <select id="product" class="form-control">
                                                     <% for(var i=0 ; i < product_name.length ; i++){%>
                                                         <option value="<%=product_name[i].product_name%>">
@@ -285,8 +215,6 @@
                                             <td>
                                                 <div contenteditable="true" id="qty" name="quantity"
                                                     class="form-control"> </div><br>
-                                                <!-- <input type="text" placeholder="Unit" data-toggle="tooltip" data-title="e.q kg, lots, packs"
-                                            name="unit" class="form-control input-transparent text-right"> -->
                                             </td>
                                             <td>
                                                 <div contenteditable="true" id="unit" name="unit" class="form-control">
@@ -306,22 +234,10 @@
                                             </td>
                                             <td></td>
                                             <td>
-                                                <!-- <form method="post" action="/cgi-bin/show_params.cgi">
-                                            <input class="form-control" type="button" id="moreFields"
-                                                value="Add" />
-                                            <br>
-                                            <input class="form-control" type="button" value="Print"
-                                                onclick="CopyElem();PrintElem('#container')" />
-                                            <span id="writeroot"></span>
-        
-                                            <div id="copyoutput" style="display: none;"></div>
-                                        </form> -->
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
-                                <!-- </form> -->
                                 <div style="padding-bottom: 5px;" class="row">
                                     <span id="writeroot"></span>
                                     <div class="col-md-4">
@@ -438,7 +354,7 @@
                         formoption4 += result.address[i].Zip_code;
                     }
                     $('#saddress').empty();
-                    $('#saddress').append(formoption);
+                    $('#saddress').append(formoption).val();
                     $('#scity').empty();
                     $('#scity').append(formoption2);
                     $('#sstate').empty();
@@ -469,13 +385,12 @@
                     for (var i in result.address) {
                         var id = result.address[i].Address;
                         console.log('address =', result.address[i].Address);
-                        // formoption += "<option value='" + result.address[i].Address + "'>" + result.address[i].Address + "</option>";
                         formoption += result.address[i].Address;
                         formoption2 += result.address[i].City;
                         formoption3 += result.address[i].State;
                         formoption4 += result.address[i].Zip_code;
                     }
-                    // $('#address').empty();
+                    $('#address').empty();
                     $('#address').append(formoption);
                     $('#city').empty();
                     $('#city').append(formoption2);

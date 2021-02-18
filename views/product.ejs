@@ -33,19 +33,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Your Products</h3>
-
-                                <!-- <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -56,18 +43,7 @@
                                             <th>Sub Category</th>
                                             <th>Product ID</th>
                                             <th>Product Name</th>
-                                            <!-- <th>Uid</th>
-                                            <th>Customer Name</th>
-                                            <th>Company</th>
-                                            <th>GST Number</th>
-                                            <th>Contact No</th>
-                                            <th>Email ID</th>
-                                            <th>Company Address</th>
-                                            <th>City</th>
-                                            <th>State</th>
-                                            <th>Zip Code</th> -->
                                             <th>More</th>
-                                                
                                         </tr>
                                     </thead>
 
@@ -86,38 +62,7 @@
                                                 <td>
                                                     <%= result[i].product_name %>
                                                 </td>
-                                                <!-- <td>
-                                                    <%= result[i].Customer_name %>
-                                                </td>
                                                 <td>
-                                                    <%= result[i].Company%>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].VAT_number%>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].Phone%>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].Website %>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].Address %>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].City %>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].State %>
-                                                </td>
-                                                <td>
-                                                    <%= result[i].Zip_code %>
-                                                </td> -->
-                                                <td>
-
-                                                    <!-- <a class="add" title="Add" data-toggle="tooltip"
-                                                        href="#"><i
-                                                            class="material-icons">&#xE03B;</i></a> -->
                                                     <a href="/users/edit_product/<%= result[i].product_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
                                                             class="material-icons">&#xE254;</i></a>
                                                     <a class="delete" title="Delete"
@@ -125,7 +70,6 @@
                                                         href="../users/product_delete/<%= result[i].product_id%>"><i
                                                             class="material-icons">&#xE872;</i></a>
                                                 </td>
-
                                             </tr>
                                             <%}%>
                                     </tbody>
@@ -141,13 +85,8 @@
                     <a href="/users/add_product">
                         <button type="button" class="btn btn-block btn-outline-primary">Add Products</button>
                     </a>
-                    <!-- <a href="./smswebapp_creategroup.html">
-                        <button type="button" class="btn btn-block btn-outline-success">Create Group</button>
-                    </a> -->
                 </div>
-
                 <!-- /.card -->
-
             </section>
             <!-- /.content -->
         </div>

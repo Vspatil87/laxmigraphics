@@ -31,7 +31,6 @@
                         <div class="card-header">
                             <h3 class="card-title">Laxmi Graphics Invoice</h3>
                         </div>
-                        <!-- <div class="card-body table-responsive p-0" style="height: 300px;"> -->
                         <form action="/users/insert_invoice" method="POST">
                             <table style="padding: 5px;" class="table table-head-fixed text-nowrap" id="table">
                                 <div style="padding: 5px;">
@@ -71,7 +70,6 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <!-- <div class="status" style="">Start typing to search</div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,7 +123,6 @@
                                                                 name="date" class="form-control datepicker"
                                                                 autocomplete="off">
                                                             <div class="input-group-addon">
-                                                                <!-- <i class="fa fa-calendar calendar-icon"></i> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -137,7 +134,6 @@
                                                                 name="duedate" class="form-control datepicker"
                                                                 autocomplete="off">
                                                             <div class="input-group-addon">
-                                                                <!-- <i class="fa fa-calendar calendar-icon"></i> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -258,7 +254,6 @@
                                             <th width="15%" align="right">Rate</th>
                                             <th width="20%" align="right">Tax</th>
                                             <th width="10%" align="right">Amount</th>
-                                            <!-- <th align="center"><i class="fa fa-cog"></i></th> -->
                                         </tr>
                                     </thead>
                                     <tbody class="ui-sortable">
@@ -412,7 +407,6 @@
                     for (var i in result.address) {
                         var id = result.address[i].Address;
                         console.log('address =', result.address[i].Address);
-                        // formoption += "<option value='" + result.address[i].Address + "'>" + result.address[i].Address + "</option>";
                         formoption += result.address[i].Address;
                         formoption2 += result.address[i].City;
                         formoption3 += result.address[i].State;

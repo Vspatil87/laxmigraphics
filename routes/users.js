@@ -25,10 +25,8 @@ router.get('/login', function (req, res, next) {
 router.get('/customer', function (req, res, next) {
   knex('customer').select('*').then(result => {
     console.log('result=', result);
-    // res.send(result);
-    res.render('customer', { title: 'Laxmi Graphics', result: result });   // console.log('result=', result[0].user_name)
+    res.render('customer', { title: 'Laxmi Graphics', result: result });  
   })
-  // res.render('customer', { title: 'Laxmi Graphics' });
 });
 
 router.get('/add_customer', function (req, res, next) {
@@ -36,7 +34,6 @@ router.get('/add_customer', function (req, res, next) {
 });
 
 router.post('/add_customer', function (req, res, next) {
-  // res.render('login',{ title:'SMS APP'});
   const Customer_name = req.body.Customer_name;
   const Company = req.body.Company;
   const VAT_number = req.body.VAT_number;
@@ -57,13 +54,11 @@ router.post('/add_customer', function (req, res, next) {
     State: State,
     Zip_code: Zip_code
   }
-
   knex('customer').insert(customer_info)
     .then(result => {
       console.log("result=", result);
       res.redirect('customer')
     })
-
 })
 
 router.get('/edit/:id', function (req, res, next) {
@@ -90,19 +85,10 @@ router.get('/edit/:id', function (req, res, next) {
       req.flash('error', 'Customers not found with id = ' + req.params.id)
       res.redirect('customer')
     }
-    // res.render('/customer/customer_update' , {result:result});
   })
 })
 
 router.post('/customer_update/:id', function (req, res, next) {
-  // req.assert('Company', 'Company name is required');
-  // req.assert('VAT_number', 'VAT_number is required');
-  // req.assert('Mobile_number', 'Mobile_number  is required');
-  // req.assert('Website', 'Website is required');
-  // req.assert('Address', 'Address is required');
-  // req.assert('City', 'City is required');
-  // req.assert('State', 'State is required');
-  // req.assert('Zip_Code', 'Zip_code is required');
   var user_update = {
     Customer_name: req.body.Customer_name,
     Company: req.body.Company,
@@ -117,8 +103,6 @@ router.post('/customer_update/:id', function (req, res, next) {
   knex('customer').update(user_update).where('Uid', req.params.id).then(result => {
     console.log('result = ', result);
     res.redirect('/users/customer')
-    // res.render('/customer', { result: result }
-    // );
   })
 })
 
@@ -141,9 +125,8 @@ router.get('/customer_delete/(:id)', function (req, res, next) {
 router.get('/employee', function (req, res, next) {
   knex('employee').select('*').then(result => {
     console.log('result=', result);
-    res.render('employee', { title: 'Laxmi Graphics', result: result });   // console.log('result=', result[0].user_name)
+    res.render('employee', { title: 'Laxmi Graphics', result: result });   
   })
-  // res.render('employee', { title: 'Laxmi Graphics' });
 });
 
 router.get('/add_employee', function (req, res, next) {
@@ -151,7 +134,6 @@ router.get('/add_employee', function (req, res, next) {
 });
 
 router.post('/add_employee', function (req, res, next) {
-  // res.render('login',{ title:'SMS APP'});
   console.log("DOB", req.body.DOB);
   const Name = req.body.employee_name;
   const mobile_number = req.body.mobile_number;
@@ -199,19 +181,10 @@ router.get('/edit_employee/:id', function (req, res, next) {
       req.flash('error', 'Employee not found with id = ' + req.params.id)
       res.redirect('employee')
     }
-    // res.render('/employee/customer_update' , {result:result});
   })
 })
 
 router.post('/employee_update/:id', function (req, res, next) {
-  // req.assert('Company', 'Company name is required');
-  // req.assert('VAT_number', 'VAT_number is required');
-  // req.assert('Mobile_number', 'Mobile_number  is required');
-  // req.assert('Website', 'Website is required');
-  // req.assert('Address', 'Address is required');
-  // req.assert('City', 'City is required');
-  // req.assert('State', 'State is required');
-  // req.assert('Zip_Code', 'Zip_code is required');
   var user_update = {
     Uid: req.body.Uid,
     Name: req.body.employee_name,
@@ -232,19 +205,10 @@ router.post('/employee_update/:id', function (req, res, next) {
 router.get('/employee_delete/(:id)', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('user = ', user.id)
-  // var sql = `DELETE FROM customer WHERE id=${id}`;
-  // db.query(sql, function (err, result) {
-  //   if (err) {
-  //     throw err;
-  //   }
-  //   // res.redirect('/customer');
-  //   res.redirect('/employee');
-  // })
   {
     knex('employee').where('Uid', user.id).del()
       .then(() => {
         res.redirect('/users/employee');
-        // console.log("data=", data);
       })
   }
 })
@@ -254,10 +218,8 @@ router.get('/employee_delete/(:id)', function (req, res, next) {
 router.get('/vendor', function (req, res, next) {
   knex('vendor').select('*').then(result => {
     console.log('result=', result);
-    // res.send(result);
-    res.render('vendor', { title: 'Laxmi Graphics', result: result });   // console.log('result=', result[0].user_name)
+    res.render('vendor', { title: 'Laxmi Graphics', result: result });   
   })
-  // res.render('vendor', { title: 'Laxmi Graphics' });
 });
 
 router.get('/add_vendor', function (req, res, next) {
@@ -265,7 +227,6 @@ router.get('/add_vendor', function (req, res, next) {
 });
 
 router.post('/add_vendor', function (req, res, next) {
-  // res.render('login',{ title:'SMS APP'});
   const Company = req.body.Company;
   const VAT_number = req.body.VAT_number;
   const Phone = req.body.Mobile_number;
@@ -290,10 +251,7 @@ router.post('/add_vendor', function (req, res, next) {
       res.redirect("vendor")
 
     })
-
 })
-
-
 
 
 router.get('/edit_vendor/:id', function (req, res, next) {
@@ -319,19 +277,10 @@ router.get('/edit_vendor/:id', function (req, res, next) {
       req.flash('error', 'Vendor not found with id = ' + req.params.id)
       res.redirect('vendor')
     }
-    // res.render('/vendor/customer_update' , {result:result});
   })
 })
 
 router.post('/vendor_update/:id', function (req, res, next) {
-  // req.assert('Company', 'Company name is required');
-  // req.assert('VAT_number', 'VAT_number is required');
-  // req.assert('Mobile_number', 'Mobile_number  is required');
-  // req.assert('Website', 'Website is required');
-  // req.assert('Address', 'Address is required');
-  // req.assert('City', 'City is required');
-  // req.assert('State', 'State is required');
-  // req.assert('Zip_Code', 'Zip_code is required');
   var user_update = {
     Company: req.body.Company,
     VAT_number: req.body.VAT_number,
@@ -345,27 +294,16 @@ router.post('/vendor_update/:id', function (req, res, next) {
   knex('vendor').update(user_update).where('Uid', req.params.id).then(result => {
     console.log('result = ', result);
     res.redirect('/users/vendor')
-    // res.render('/customer', { result: result }
-    // );
   })
 })
 
 router.get('/vendor_delete/(:id)', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('user = ', user.id)
-  // var sql = `DELETE FROM customer WHERE id=${id}`;
-  // db.query(sql, function (err, result) {
-  //   if (err) {
-  //     throw err;
-  //   }
-  //   // res.redirect('/customer');
-  //   res.redirect('/vendor');
-  // })
   {
     knex('vendor').where('Uid', user.id).del()
       .then(() => {
         res.redirect('/users/vendor');
-        // console.log("data=", data);
       })
   }
 })
@@ -384,7 +322,6 @@ router.get('/add_category', function (req, res, next) {
 });
 
 router.post('/add_category', function (req, res, next) {
-  // res.render('login',{ title:'SMS APP'});
   const Name = req.body.Name;
   console.log('name = ', Name);
   var category_info = {
@@ -394,24 +331,18 @@ router.post('/add_category', function (req, res, next) {
   knex('category').insert(category_info)
     .then(result => {
       console.log("result=", result);
-      // res.render('category', { title: 'Laxmi Graphics', result: result }); 
       res.redirect('category')
-
-      // SELECT TO_CHAR(TIMESTAMP '2021-01-21 14:40:43', 'DD-MM-YYYY');
     })
-
 })
 
 
 router.get('/category_delete/(:id)', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('user = ', user.id)
-
   {
     knex('category').where('Uid', user.id).del()
       .then(() => {
         res.redirect('/users/category');
-        // console.log("data=", data);
       })
   }
 })
@@ -431,7 +362,6 @@ router.get('/edit_category/:id', function (req, res, next) {
       req.flash('error', 'Category not found with id = ' + req.params.id)
       res.redirect('category')
     }
-    // res.render('/users/customer_update' , {result:result});
   })
 })
 
@@ -531,12 +461,10 @@ router.post('/sub_category_update/:id', function (req, res, next) {
 router.get('/sub_category_delete/(:id)', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('user = ', user.id)
-
   {
     knex('sub_category').where('sub_cat_id', user.id).del()
       .then(() => {
         res.redirect('/users/sub_category');
-        // console.log("data=", data);
       })
   }
 })
@@ -651,11 +579,6 @@ router.get('/product_details', function (req, res, next) {
 
 router.get('/add_product_details', function (req, res, next) {
   knex.select('*').from('category')
-    // .leftJoin('sub_category' , 'sub_category.main_category_id' , 'category.Uid')
-    // .leftJoin('product' , 'product.sub_category_id' , 'sub_category.sub_cat_id')
-    // .where('sub_category.sub_cat_id', '')
-    // .join('sub_category', 'category.Uid', '=', 'sub_category.main_category_id')
-    // .join('product', 'sub_category.sub_cat_id', '=', 'product.sub_category_id')
     .then(sel => {
       console.log('result_of_selected_category=', sel);
       res.render('product_details_add', { result: sel, title: 'Laxmi Graphics' });
@@ -711,7 +634,6 @@ router.post('/select_category', function (req, res, next) {
 router.post('/select_product', function (req, res, next) {
   console.log('selected_product_name=', req.body.name)
   knex('sub_category')
-    // .join('sub_category', 'category.Uid', '=', 'sub_category.sub_cat_id')
     .join('product', 'sub_category.sub_cat_id', '=', 'product.sub_category_id')
     .select('product_name').where('sub_category.sub_category', req.body.name).then(product => {
       console.log('product = ', product);
@@ -722,7 +644,6 @@ router.post('/select_product', function (req, res, next) {
 router.get('/product_details_delete/(:id)', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('product_details_id = ', user.id)
-
   {
     knex('product_details').where('product_details_id', user.id).del()
       .then(() => {
@@ -776,8 +697,6 @@ router.post('/update_product_details/:id', function (req, res, next) {
       })
     })
   })
-
-
 })
 
 // ---------------------------------------------customer Inquiry--------------------------------------------------
@@ -843,7 +762,6 @@ router.get('/edit_customer_inquiry/:id', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('edit_inquiry = ', user.id);
   knex('customer_inquiry').select('*').where('customer_id', user.id)
-    // .join('customer', 'customer_inquiry.customer_id', '=', 'customer.Uid')
     .then(customer => {
       console.log('customer=', customer);
       if (customer) {
@@ -935,34 +853,33 @@ router.post('/select_saddress', function (req, res, next) {
 });
 
 router.post('/insert_quotation', function (req, res, next) {
-  console.log("address = " , req.body.baddress);
-  // knex('customer').select('*').where('Company', req.body.Company)
-  //   .then(customer => {
-  //     var quotation = {
-  //       customer: customer[0].Customer_name,
-  //       company: req.body.Company,
-  //       bill_address: customer[0].Address,
-  //       bill_city: customer[0].City,
-  //       bill_state: customer[0].State,
-  //       bill_zip_code: customer[0].Zip_code,
-  //       ship_address: customer[0].Address,
-  //       ship_city: customer[0].City,
-  //       ship_state: customer[0].State,
-  //       ship_zip_code: customer[0].Zip_code,
-  //       estimate_date: req.body.date,
-  //       expiry_date: req.body.expirydate,
-  //       rate: req.body.price,
-  //       status: req.body.status,
-  //       sale_agent: req.body.saleagent,
-  //       discount: req.body.discount,
-  //       note: req.body.adminnote
-  //     }
-  //     console.log('insertvalues = ', quotation);
-  //     knex('quotation').insert(quotation).then(insertquotation => {
-  //       console.log('insertquo = ', insertquotation);
-  //       res.redirect('quotation');
-  //     })
-  //   })
+  knex('customer').select('*').where('Company', req.body.Company)
+    .then(customer => {
+      var quotation = {
+        customer: customer[0].Customer_name,
+        company: req.body.Company,
+        bill_address: customer[0].Address,
+        bill_city: customer[0].City,
+        bill_state: customer[0].State,
+        bill_zip_code: customer[0].Zip_code,
+        ship_address: customer[0].Address,
+        ship_city: customer[0].City,
+        ship_state: customer[0].State,
+        ship_zip_code: customer[0].Zip_code,
+        estimate_date: req.body.date,
+        expiry_date: req.body.expirydate,
+        rate: req.body.price,
+        status: req.body.status,
+        sale_agent: req.body.saleagent,
+        discount: req.body.discount,
+        note: req.body.adminnote
+      }
+      console.log('insertvalues = ', quotation);
+      knex('quotation').insert(quotation).then(insertquotation => {
+        console.log('insertquo = ', insertquotation);
+        res.redirect('quotation');
+      })
+    })
 })
 
 // ---------------------------------------------------Invoice-----------------------------------------------------------

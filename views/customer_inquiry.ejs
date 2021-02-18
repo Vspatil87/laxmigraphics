@@ -34,19 +34,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Your Customer Details</h3>
-
-                                <!-- <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -65,9 +52,6 @@
                                             <th>State</th>
                                             <th>Zip Code</th>
                                             <th>Date</th>
-                                            <!-- <th>Time</th>
-                                            <th>More</th> -->
-
                                         </tr>
                                     </thead>
 
@@ -107,17 +91,7 @@
                                                 <td>
                                                     <%= result[i].zip_code %>
                                                 </td>
-                                                <!-- <td>
-                                                    <%= result[i].date %>
-                                                </td>
                                                 <td>
-                                                    <%= result[i].time %>
-                                                </td> -->
-                                                <td>
-
-                                                    <!-- <a class="add" title="Add" data-toggle="tooltip"
-                                                        href="#"><i
-                                                            class="material-icons">&#xE03B;</i></a> -->
                                                     <a href="/users/edit_customer_inquiry/<%= result[i].customer_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
                                                             class="material-icons">&#xE254;</i></a>
                                                     <a class="delete" title="Delete"
@@ -141,9 +115,6 @@
                     <a href="/users/add_customer_inquiry">
                         <button type="button" class="btn btn-block btn-outline-primary">Add Inquiry</button>
                     </a>
-                    <!-- <a href="./smswebapp_creategroup.html">
-                        <button type="button" class="btn btn-block btn-outline-success">Create Group</button>
-                    </a> -->
                 </div>
 
                 <!-- /.card -->

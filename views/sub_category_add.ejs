@@ -37,11 +37,7 @@
                                 <form id="quickForm" action="/users/add_sub_category" method="POST">
                                     <div class="card-body">
                                         <div class="form-group">
-                                        
-
-
                                             <label>Select Main category</label>
-
                                             <select name='select_category'  class="form-control">
                                             <% for(var i=0 ; i < result.length ; i++){%>
                                               <option value="<%=result[i].Name%>">
@@ -55,46 +51,7 @@
                                             <input type="text" name="sub_category" class="form-control"
                                                 placeholder="Enter Sub Category ..." required>
                                         </div>
-                                        <!-- <div class="form-group">
-                                            <label>VAT_number</label>
-                                            <input type="text" name="VAT_number" class="form-control"
-                                                placeholder="Enter VAT Number..." required>
-                                        </div> -->
-                                        <!-- <div class="form-group">
-                                            <label>Mobile_number</label>
-                                            <input type="text" name="Mobile_number" class="form-control"
-                                                placeholder="Enter Your Mobile Number..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Website</label>
-                                            <input type="text" name="Website" class="form-control"
-                                                placeholder="Enter Website..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <input type="text" name="Address" class="form-control"
-                                                placeholder="Enter Your Address..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <input type="text" name="City" class="form-control"
-                                                placeholder="Enter city name..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>State</label>
-                                            <input type="text" name="State" class="form-control"
-                                                placeholder="Enter State..." required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Zip_code</label>
-                                            <input type="text" name="Zip_code" class="form-control"
-                                                placeholder="Enter Zip code..." required>
-                                        </div> -->
                                         <div class="form-group mb-0">
-                                            <!-- <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                        <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                      </div> -->
                                         </div>
                                     </div>
                                     <!-- /.card-body -->

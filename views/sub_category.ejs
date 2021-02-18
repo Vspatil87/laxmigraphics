@@ -33,19 +33,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Sub Category</h3>
-
-                                <!-- <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -56,20 +43,11 @@
                                             <th>Sub_cat_id</th>
                                             <th>Main Category</th>
                                             <th>Sub Category</th>
-                                            <!-- <th>VAT Number</th>
-                                            <th>Phone</th>
-                                            <th>Website</th>
-                                            <th>Address</th>
-                                            <th>City</th>
-                                            <th>State</th>
-                                            <th>Zip Code</th> -->
                                             <th>More</th>
-
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        
                                         <% for(var srno = 1 , i=0 ; i < cat.length; i++ , srno++){%>
                                             <tr>
                                                 <td>
@@ -86,8 +64,6 @@
                                                 </td>
                                               
                                                 <td>
-                                                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i
-                                                            class="material-icons">&#xE03B;</i></a> -->
                                                     <a href="/users/edit_sub_category/<%=cat[i].sub_cat_id %>" class="edit" title="Edit" data-toggle="tooltip"><i
                                                             class="material-icons">&#xE254;</i></a>
                                                     <a href="../users/sub_category_delete/<%= cat[i].sub_cat_id %>" class="delete" title="Delete"
