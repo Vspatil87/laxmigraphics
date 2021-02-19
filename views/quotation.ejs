@@ -40,11 +40,13 @@
                                             <label for="clientid" class="control-label"> <small class="req text-danger">
                                                 </small>Customer</label>
                                             <div class="dropdown bootstrap-select ajax-search bs3" style="width: 100%;">
-                                                <div class="dropdown bootstrap-select ajax-search bs3"
+                                                <div class="dropdown bootstrap-select ajax-search bs3 , editdropdown"
                                                     style="width: 100%;">
-                                                    <select id="customer" name="customer_name" class="form-control">
+                                                    <input class="form-control" type="text" />
+                                                    <select onchange="this.previousElementSibling.value = this.value;"
+                                                        id="customer" name="customer_name" class="form-control">
                                                         <% for(var i=0 ; i < result.length ; i++){%>
-                                                            <option value="<%=result[i].Customer_name%>">
+                                                            <option selected value="<%=result[i].Customer_name%>">
                                                                 <%= result[i].Customer_name%>
                                                             </option>
                                                             <%}%>
@@ -182,12 +184,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <table id="readroot"
+                                <table id="readroot"  
                                     class="table invoice-items-table items table-main-invoice-edit has-calculations no-mtop">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th width="20%" align="left"><i class="fa fa-exclamation-circle"
+                                            <th width="10%"><i class="fa fa-exclamation-circle"
                                                     aria-hidden="true" data-toggle="tooltip"
                                                     data-title="New lines are not supported for item description. Use the item long description instead."></i>
                                                 Item</th>
@@ -195,42 +196,42 @@
                                             <th width="10%" align="right" class="qty">Unit</th>
                                             <th width="15%" align="right">Rate</th>
                                             <th width="20%" align="right">Tax</th>
-                                            <th width="10%" align="right">Sum</th>
+                                            <!-- <th width="10%" align="right">Sum</th> -->
                                             <th width="10%" align="right">Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody class="ui-sortable">
                                         <tr class="main">
-                                            <td></td>
                                             <td>
-                                                <select id="product" name="product_name" class="form-control">
-                                                    <% for(var i=0 ; i < product_name.length ; i++){%>
-                                                        <option value="<%=product_name[i].product_name%>">
-                                                            <%= product_name[i].product_name%>
-                                                        </option>
-                                                        <%}%>
-                                                </select>
+                                                <div class="editdropdown">
+                                                    <input class="form-control" type="text" />
+                                                    <select
+                                                        onchange="this.previousElementSibling.value=this.value; this.previousElementSibling.focus()"
+                                                        id="product" name="product_name" class="form-control">
+                                                        <% for(var i=0 ; i < product_name.length ; i++){%>
+                                                            <option selected value="<%=product_name[i].product_name%>">
+                                                                <%= product_name[i].product_name%>
+                                                            </option>
+                                                            <%}%>
+                                                    </select>
+                                                </div>
                                             </td>
                                             <td>
-                                                <input type="text" id="qty" name="quantity" class="form-control"
+                                                <input onchange="preamount()" type="text" id="qty" name="quantity" class="form-control"
                                                     placeholder="qty"> <br>
                                             </td>
                                             <td>
-                                                <input type="text" id="unit" name="unit" class="form-control"
+                                                <input onchange="preamount()" type="text" id="unit" name="unit" class="form-control"
                                                     placeholder="unit">
                                                 <br>
                                             </td>
                                             <td>
-                                                <input type="text" id="rate" name="rate" class="form-control"
+                                                <input onchange="preamount()" type="text" id="rate" name="rate" class="form-control"
                                                     placeholder="rate">
                                                 <br>
                                             </td>
                                             <td>
                                                 <input type="text" name="GST" class="form-control" placeholder="GST">
-                                            </td>
-                                            <td>
-                                                <input onclick="preamount()" type="button" value="Click to Sum"
-                                                    class="form-control">
                                             </td>
                                             <td>
                                                 <input type="text" id="amount" name="amount" class="form-control"

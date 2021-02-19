@@ -16,10 +16,29 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js" defer></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"
+    defer></script>
 
   <style>
+    .editdropdown {
+      position: relative;
+      width: 200px;
+    }
+
+    .editdropdown select {
+      width: 100%;
+    }
+
+    .editdropdown>* {
+      box-sizing: border-box;
+      height: 2.5em;
+    }
+
+    .editdropdown input {
+      position: absolute;
+      width: calc(100% - 20px);
+    }
+
     .add {
       color: #27C46B;
     }
@@ -175,7 +194,7 @@
               <a href="/users/invoice" class="nav-link ">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
-                 Invoice
+                  Invoice
                 </p>
               </a>
 
