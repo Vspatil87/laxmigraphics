@@ -63,11 +63,11 @@
                                                     <%= result[i].product_name %>
                                                 </td>
                                                 <td>
-                                                    <a href="/users/edit_product/<%= result[i].product_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
+                                                    <a href="/product/edit_product/<%= result[i].product_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
                                                             class="material-icons">&#xE254;</i></a>
                                                     <a class="delete" title="Delete"
                                                         onclick="return confirm('Are You sure?')" data-toggle="tooltip"
-                                                        href="../users/product_delete/<%= result[i].product_id%>"><i
+                                                        href="../product/product_delete/<%= result[i].product_id%>"><i
                                                             class="material-icons">&#xE872;</i></a>
                                                 </td>
                                             </tr>
@@ -82,7 +82,7 @@
                 </div>
                 <!-- /.row -->
                 <div class="col-sm-3">
-                    <a href="/users/add_product">
+                    <a href="/product/add_product">
                         <button type="button" class="btn btn-block btn-outline-primary">Add Products</button>
                     </a>
                 </div>

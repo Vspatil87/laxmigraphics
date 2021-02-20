@@ -98,11 +98,11 @@
                                                 </td>
                              
                                                 <td>
-                                                    <a href="/users/edit_product_details/<%= result[i].product_details_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
+                                                    <a href="/product/edit_product_details/<%= result[i].product_details_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
                                                             class="material-icons">&#xE254;</i></a>
                                                     <a class="delete" title="Delete"
                                                         onclick="return confirm('Are You sure?')" data-toggle="tooltip"
-                                                        href="../users/product_details_delete/<%= result[i].product_details_id%>"><i
+                                                        href="../product/product_details_delete/<%= result[i].product_details_id%>"><i
                                                             class="material-icons">&#xE872;</i></a>
                                                 </td>
 
@@ -118,7 +118,7 @@
                 </div>
                 <!-- /.row -->
                 <div class="col-sm-3">
-                    <a href="/users/add_product_details">
+                    <a href="/product/add_product_details">
                         <button type="button" class="btn btn-block btn-outline-primary">Add Products</button>
                     </a>
                 </div>

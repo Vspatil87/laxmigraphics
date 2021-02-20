@@ -34,17 +34,21 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm" action="/users/add_customer_inquiry" method="POST">
+                            <form id="quickForm" action="/inquiry/add_customer_inquiry" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Customer Name</label>
-                                        <select name='selected_customer' class="form-control" id="customer">
-                                            <% for(var i=0 ; i < result.length ; i++){%>
-                                                <option value="<%=result[i].Customer_name%>">
-                                                    <%= result[i].Customer_name%>
-                                                </option>
-                                                <%}%>
-                                        </select>
+                                        <div style="width: 100%;" class="editdropdown">
+                                            <input class="form-control" type="text" />
+                                            <select onchange="this.previousElementSibling.value = this.value;"
+                                                name='selected_customer' class="form-control" id="customer">
+                                                <% for(var i=0 ; i < result.length ; i++){%>
+                                                    <option selected value="<%=result[i].Customer_name%>">
+                                                        <%= result[i].Customer_name%>
+                                                    </option>
+                                                    <%}%>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Company</label>
@@ -109,15 +113,15 @@
     <!-- /.content-wrapper -->
 
 
-<!-- ------------------------------------------------------Script to append customer details to form-------------------------------------------------------------     -->
-   
-   <script>
+    <!-- ------------------------------------------------------Script to append customer details to form-------------------------------------------------------------     -->
+
+    <script>
         var result;
         console.log('name = ', name);
         jQuery('#customer').click('change', function () {
             var cat_name = $('#customer option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/customer_select',
+            jQuery.post('http://localhost:3000/inquiry/customer_select',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     var formoption = "";
@@ -131,16 +135,16 @@
                     console.log('inquiry = ', result);
                     var i = 0;
                     for (var i in result.resultofcustomer) {
-                            var id = result.resultofcustomer[i].Company;
-                            console.log("customer_company =", id)
-                            formoption += "<option value='" + result.resultofcustomer[i].Company + "'>" + result.resultofcustomer[i].Company + "</option>";
-                            formoption2 += "<option value='" + result.resultofcustomer[i].VAT_number + "'>" + result.resultofcustomer[i].VAT_number + "</option>";
-                            formoption3 += "<option value='" + result.resultofcustomer[i].Phone + "'>" + result.resultofcustomer[i].Phone + "</option>";
-                            formoption4 += "<option value='" + result.resultofcustomer[i].Website + "'>" + result.resultofcustomer[i].Website + "</option>";
-                            formoption5 += "<option value='" + result.resultofcustomer[i].Address + "'>" + result.resultofcustomer[i].Address + "</option>";
-                            formoption6 += "<option value='" + result.resultofcustomer[i].City + "'>" + result.resultofcustomer[i].City + "</option>";
-                            formoption7 += "<option value='" + result.resultofcustomer[i].State + "'>" + result.resultofcustomer[i].State + "</option>";
-                            formoption8 += "<option value='" + result.resultofcustomer[i].Zip_code + "'>" + result.resultofcustomer[i].Zip_code + "</option>";
+                        var id = result.resultofcustomer[i].Company;
+                        console.log("customer_company =", id)
+                        formoption += "<option value='" + result.resultofcustomer[i].Company + "'>" + result.resultofcustomer[i].Company + "</option>";
+                        formoption2 += "<option value='" + result.resultofcustomer[i].VAT_number + "'>" + result.resultofcustomer[i].VAT_number + "</option>";
+                        formoption3 += "<option value='" + result.resultofcustomer[i].Phone + "'>" + result.resultofcustomer[i].Phone + "</option>";
+                        formoption4 += "<option value='" + result.resultofcustomer[i].Website + "'>" + result.resultofcustomer[i].Website + "</option>";
+                        formoption5 += "<option value='" + result.resultofcustomer[i].Address + "'>" + result.resultofcustomer[i].Address + "</option>";
+                        formoption6 += "<option value='" + result.resultofcustomer[i].City + "'>" + result.resultofcustomer[i].City + "</option>";
+                        formoption7 += "<option value='" + result.resultofcustomer[i].State + "'>" + result.resultofcustomer[i].State + "</option>";
+                        formoption8 += "<option value='" + result.resultofcustomer[i].Zip_code + "'>" + result.resultofcustomer[i].Zip_code + "</option>";
                     }
                     $('#company').empty();
                     $('#company').append(formoption);

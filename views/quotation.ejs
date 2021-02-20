@@ -22,8 +22,6 @@
         <section class="content">
 
             <!-- Default box -->
-
-
             <!-- /.row -->
             <div class="row">
                 <div class="col-12">
@@ -32,7 +30,7 @@
                             <h3 class="card-title">Laxmi Graphics Quotation</h3>
                         </div>
                         <!-- <div class="card-body table-responsive p-0" style="height: 300px;"> -->
-                        <form action="/users/insert_quotation" method="POST">
+                        <form action="/quotation/insert_quotation" method="POST">
                             <table class="table table-head-fixed text-nowrap" id="table">
                                 <div style="padding: 5px;">
                                     <div class="row">
@@ -121,8 +119,11 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label>Company</label>
+                                            <!-- <div class="editdropdown"> -->
+                                            <!-- <input type="text" /> -->
                                             <select id="company" name='Company' class="form-control">
                                             </select>
+                                            <!-- </div> -->
                                             <br>
                                             <div>
                                                 <label>Rate</label>
@@ -180,16 +181,17 @@
                                             </div>
                                             <div class="form-group" app-field-wrapper="adminnote"><label for="adminnote"
                                                     class="control-label">Note</label><textarea id="adminnote"
-                                                    name="adminnote" class="form-control" rows="4"></textarea></div>
+                                                    name="adminnote" class="form-control" rows="4"></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <table id="readroot"  
+                                <table id="readroot"
                                     class="table invoice-items-table items table-main-invoice-edit has-calculations no-mtop">
                                     <thead>
                                         <tr>
-                                            <th width="10%"><i class="fa fa-exclamation-circle"
-                                                    aria-hidden="true" data-toggle="tooltip"
+                                            <th width="10%"><i class="fa fa-exclamation-circle" aria-hidden="true"
+                                                    data-toggle="tooltip"
                                                     data-title="New lines are not supported for item description. Use the item long description instead."></i>
                                                 Item</th>
                                             <th width="10%" align="right" class="qty">Qty</th>
@@ -217,17 +219,17 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <input onchange="preamount()" type="text" id="qty" name="quantity" class="form-control"
-                                                    placeholder="qty"> <br>
+                                                <input onchange="preamount()" type="text" id="qty" name="quantity"
+                                                    class="form-control" placeholder="qty"> <br>
                                             </td>
                                             <td>
-                                                <input onchange="preamount()" type="text" id="unit" name="unit" class="form-control"
-                                                    placeholder="unit">
+                                                <input onchange="preamount()" type="text" id="unit" name="unit"
+                                                    class="form-control" placeholder="unit">
                                                 <br>
                                             </td>
                                             <td>
-                                                <input onchange="preamount()" type="text" id="rate" name="rate" class="form-control"
-                                                    placeholder="rate">
+                                                <input onchange="preamount()" type="text" id="rate" name="rate"
+                                                    class="form-control" placeholder="rate">
                                                 <br>
                                             </td>
                                             <td>
@@ -281,7 +283,7 @@
         var result;
         jQuery('#product').click('change', function () {
             var cat_name = $('#product option:selected').val();
-            jQuery.post('http://localhost:3000/users/select_details',
+            jQuery.post('http://localhost:3000/quotation/select_details',
                 { product: cat_name },
                 function (result, status, jqXHR) {
                     var formoption = "";
@@ -315,7 +317,7 @@
         jQuery('#customer').click('change', function () {
             var cat_name = $('#customer option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/select_company',
+            jQuery.post('http://localhost:3000/quotation/select_company',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.company);
@@ -339,7 +341,7 @@
         jQuery('#company').click('change', function () {
             var cat_name = $('#company option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/select_saddress',
+            jQuery.post('http://localhost:3000/quotation/select_saddress',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.address);
@@ -376,7 +378,7 @@
         jQuery('#company').click('change', function () {
             var cat_name = $('#company option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/select_address',
+            jQuery.post('http://localhost:3000/quotation/select_address',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.address);

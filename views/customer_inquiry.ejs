@@ -92,11 +92,11 @@
                                                     <%= result[i].zip_code %>
                                                 </td>
                                                 <td>
-                                                    <a href="/users/edit_customer_inquiry/<%= result[i].customer_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
+                                                    <a href="/inquiry/edit_customer_inquiry/<%= result[i].customer_id%>" class="edit" title="Edit" data-toggle="tooltip"><i
                                                             class="material-icons">&#xE254;</i></a>
                                                     <a class="delete" title="Delete"
                                                         onclick="return confirm('Are You sure?')" data-toggle="tooltip"
-                                                        href="../users/customer_inquiry_delete/<%= result[i].customer_id%>"><i
+                                                        href="../inquiry/customer_inquiry_delete/<%= result[i].customer_id%>"><i
                                                             class="material-icons">&#xE872;</i></a>
                                                 </td>
 
@@ -112,7 +112,7 @@
                 </div>
                 <!-- /.row -->
                 <div class="col-sm-3">
-                    <a href="/users/add_customer_inquiry">
+                    <a href="/inquiry/add_customer_inquiry">
                         <button type="button" class="btn btn-block btn-outline-primary">Add Inquiry</button>
                     </a>
                 </div>

@@ -57,10 +57,10 @@
                                                 <%= result[i].Name%>
                                             </td>
                                             <td>
-                                                <a href="/users/edit_category/ <%= result[i].Uid %>" class="edit"
+                                                <a href="/category/edit_category/ <%= result[i].Uid %>" class="edit"
                                                     title="Edit" data-toggle="tooltip"><i
                                                         class="material-icons">&#xE254;</i></a>
-                                                <a href="../users/category_delete/<%= result[i].Uid%>" class="delete"
+                                                <a href="../category/category_delete/<%= result[i].Uid%>" class="delete"
                                                     title="Delete" onclick="return confirm('Are you Sure?')"
                                                     data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                             </td>
@@ -76,7 +76,7 @@
             </div>
             <!-- /.row -->
             <div class="col-sm-3">
-                <a href="/users/add_category">
+                <a href="/category/add_category">
                     <button type="button" class="btn btn-block btn-outline-primary">Add Category</button>
                 </a>
             </div>

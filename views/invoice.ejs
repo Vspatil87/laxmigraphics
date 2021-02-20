@@ -31,7 +31,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Laxmi Graphics Invoice</h3>
                         </div>
-                        <form action="/users/insert_invoice" method="POST">
+                        <form action="/invoice/insert_invoice" method="POST">
                             <table style="padding: 5px;" class="table table-head-fixed text-nowrap" id="table">
                                 <div style="padding: 5px;">
                                     <div class="row">
@@ -311,7 +311,7 @@
         var result;
         jQuery('#product').click('change', function () {
             var cat_name = $('#product option:selected').val();
-            jQuery.post('http://localhost:3000/users/invoice_select_details',
+            jQuery.post('http://localhost:3000/invoice/invoice_select_details',
                 { product: cat_name },
                 function (result, status, jqXHR) {
                     var formoption = "";
@@ -345,7 +345,7 @@
         jQuery('#customer').click('change', function () {
             var cat_name = $('#customer option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/invoice_select_company',
+            jQuery.post('http://localhost:3000/invoice/invoice_select_company',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.company);
@@ -369,7 +369,7 @@
         jQuery('#company').click('change', function () {
             var cat_name = $('#company option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/invoice_select_saddress',
+            jQuery.post('http://localhost:3000/invoice/invoice_select_saddress',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.address);
@@ -406,7 +406,7 @@
         jQuery('#company').click('change', function () {
             var cat_name = $('#company option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/invoice_select_address',
+            jQuery.post('http://localhost:3000/invoice/invoice_select_address',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.address);

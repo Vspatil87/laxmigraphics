@@ -33,7 +33,7 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <!-- <div id="readroot"> -->
-                            <form id="quickForm" action="/users/add_product_details" method="POST">
+                            <form id="quickForm" action="/product/add_product_details" method="POST">
                                 <div class="card-body" id="readroot">
                                     <div class="form-group">
                                         <label>Select Main category</label>
@@ -124,7 +124,7 @@
         jQuery('#category').click('change', function () {
             var cat_name = $('#category option:selected').val();
             console.log('cat_name =', cat_name);
-            jQuery.post('http://localhost:3000/users/select_category',
+            jQuery.post('http://localhost:3000/product/select_category',
                 { name: cat_name },
                 function (result, status, jqXHR) {
                     console.log(result.sel);
@@ -148,7 +148,7 @@
         jQuery('#subcategory').click('change', function () {
             var pro_name = $('#subcategory option:selected').val();
             console.log('subcat_name =', pro_name);
-            jQuery.post('http://localhost:3000/users/select_product',
+            jQuery.post('http://localhost:3000/product/select_product',
                 { name: pro_name },
                 function (result, status, jqXHR) {
                     console.log(result.product);
