@@ -10,7 +10,6 @@ const { query } = require('express');
 
 router.use(cors());
 
-
 // ---------------------------------------------------Invoice-----------------------------------------------------------
 
 // 1. Router for fetching data to invoice 
@@ -72,6 +71,7 @@ router.post('/invoice_select_saddress', function (req, res, next) {
 // 6. Router to post the invoice details at database
 
 router.post('/insert_invoice', function (req, res, next) {
+    var count = req.body.count;
     knex('customer').select('*').where('Company', req.body.Company)
         .then(customer => {
             var invoice = {
@@ -97,23 +97,24 @@ router.post('/insert_invoice', function (req, res, next) {
             console.log('insertvalues = ', invoice);
             knex('invoice').insert(invoice).then(insertinvoice => {
                 console.log('insertinvoice = ', insertinvoice);
-                // res.redirect('invoice');
             })
         })
 
-    var iattributes = {
-        invoice_no: req.body.number,
-        item: req.body.product_name,
-        quantity: req.body.quantity,
-        unit: req.body.unit,
-        rate: req.body.rate,
-        tax: req.body.GST,
-        amount: req.body.amount,
+    for (let i = 0; i <= count; i++) {
+        knex('invoice_attributes').insert({
+            'invoice_no': req.body.number,
+            'item': req.body.product_name[i],
+            'quantity': req.body.quantity[i],
+            'unit': req.body.unit[i],
+            'rate': req.body.rate[i],
+            'tax': req.body.GST[i],
+            'amount': req.body.amount[i]
+        }
+        ).then(insertiattributes => {
+            console.log('insertattributes = ', insertiattributes);
+            res.redirect('invoice');
+        })
     }
-    knex('invoice_attributes').insert(iattributes).then(insertiattributes => {
-        console.log('insertiattributes = ', insertiattributes);
-        res.redirect('invoice');
-    })
 })
 
 module.exports = router;

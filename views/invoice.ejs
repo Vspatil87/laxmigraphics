@@ -278,12 +278,13 @@
                                     <br>
                                     <div class="col-md-4">
                                         <input class="form-control" type="submit" value="Print"
-                                            onclick="window.print('printableArea')" />
+                                            onclick="window.print()" />
                                     </div>
                                     <div id="copyoutput" style="display: none;"></div>
                                     <div class="col-md-4">
                                         <button class="form-control" type="submit">Save</button>
                                     </div>
+                                    <input style="display: none;" name="count" id="count">
                                 </div>
                             </table>
                         </form>
@@ -442,6 +443,7 @@
         jQuery('#moreFields').click('change',
             function moreFields() {
                 counter++;
+                document.getElementById('count').value = counter;
                 var newFields = document.getElementById('readroot').cloneNode(true);
                 newFields.id = '';
                 newFields.style.display = 'block';
