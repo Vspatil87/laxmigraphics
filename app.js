@@ -12,6 +12,7 @@ var categoryrouter = require('./routes/category');
 var inquiryrouter = require('./routes/inquiry');
 var quotationrouter = require('./routes/quotation');
 var invoicerouter = require('./routes/invoice');
+var dcrouter = require('./routes/dc');
 
 
 var app = express();
@@ -34,6 +35,7 @@ app.use('/category', categoryrouter);
 app.use('/inquiry', inquiryrouter);
 app.use('/quotation', quotationrouter);
 app.use('/invoice', invoicerouter);
+app.use('/dc', dcrouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,301 @@
+<%- include('header')%>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>DC</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">DC</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content" style="padding-left: 20%;">
+
+            <!-- Default box -->
+
+            <script src="jquery.min.js"></script>
+            <script src="jquery.multiselect.js"></script>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <div style="width: 70%;" class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Laxmi Graphics DC</h3>
+                        </div>
+                        <div id="readroot">
+                            <form action="/dc/insert_dc" method="POST">
+                                <table style="padding: 5px;" class="table table-head-fixed text-nowrap" id="table">
+                                    <div style="padding: 5px;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="clientid" class="control-label"> <small
+                                                        class="req text-danger">
+                                                    </small>Customer</label>
+                                                <div class="dropdown bootstrap-select ajax-search bs3"
+                                                    style="width: 100%;">
+                                                    <div class="dropdown bootstrap-select ajax-search bs3 , editdropdown"
+                                                        style="width: 100%;">
+                                                        <input class="form-control" type="text" />
+                                                        <select
+                                                            onchange="this.previousElementSibling.value = this.value;"
+                                                            id="customer" name="customer_name" class="form-control">
+                                                            <% for(var i=0 ; i < result.length ; i++){%>
+                                                                <option selected value="<%=result[i].Customer_name%>">
+                                                                    <%= result[i].Customer_name%>
+                                                                </option>
+                                                                <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label for="number"> <small class="req text-danger"> </small>DC
+                                                        Number</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon , form-control">
+                                                            DC- </span>
+                                                        <input type="text" name="number" class="form-control pending"
+                                                            value="<%= dc_no + 1%>" data-isedit="false"
+                                                            data-original-number="false" aria-invalid="false">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="form-group " app-field-wrapper="date"><label for="date"
+                                                            class="control-label"> <small class="req text-danger">
+                                                            </small>DC
+                                                            Date</label>
+                                                        <div class="input-group date"><input type="date" id="date"
+                                                                name="date" class="form-control datepicker"
+                                                                autocomplete="off">
+                                                            <div class="input-group-addon">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="multiselect">
+                                                    <label>Company</label>
+                                                    <select id="company" name='Company' class="form-control">
+                                                    </select>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label for="number"> <small class="req text-danger"> </small>PO
+                                                        Number</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon , form-control">
+                                                            PO- </span>
+                                                        <input type="text" name="po_no" class="form-control pending"
+                                                            data-isedit="false" data-original-number="false"
+                                                            aria-invalid="false">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="form-group " app-field-wrapper="date"><label for="date"
+                                                            class="control-label"> <small class="req text-danger">
+                                                            </small>PO
+                                                            Date</label>
+                                                        <div class="input-group date"><input type="date" id="date"
+                                                                name="po_date" class="form-control datepicker"
+                                                                autocomplete="off">
+                                                            <div class="input-group-addon">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <table class="table table-head-fixed text-nowrap" id="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr.No</th>
+                                                <th>Product</th>
+                                                <th>Size</th>
+                                                <th>Qty</th>
+                                                <th>More</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for(var srno=1 , i=0 ; i < 5; i++ , srno++){%>
+                                                <tr>
+                                                    <td>
+                                                        <div>
+                                                            <!-- <input name="sr_no" value="<%= srno%>" /> -->
+                                                            <%= srno%>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input onchange="count()" type="text" name="product"
+                                                            class="form-control">
+                                                        <!-- <%= result[i].product_name %> -->
+                                                    </td>
+                                                    <td>
+                                                        <input onchange="count()" type="text" name="size"
+                                                            class="form-control">
+                                                        <!-- <%= result[i].size%> -->
+                                                    </td>
+                                                    <td>
+                                                        <input onchange="count()" type="text" name="quantity"
+                                                            class="form-control">
+                                                        <!-- <%= result[i].quantity %> -->
+                                                    </td>
+                                                    <td>
+                                                        <a href="/product/edit_product/<%= result[i].product_id%>"
+                                                            class="edit" title="Edit" data-toggle="tooltip"><i
+                                                                class="material-icons">&#xE254;</i></a>
+                                                        <a class="delete" title="Delete"
+                                                            onclick="return confirm('Are You sure?')"
+                                                            data-toggle="tooltip"
+                                                            href="../product/product_delete/<%= result[i].product_id%>"><i
+                                                                class="material-icons">&#xE872;</i></a>
+                                                    </td>
+                                                </tr>
+                                                <%}%>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <div style="text-align: center;" class="form-group"
+                                            app-field-wrapper="adminnote">
+                                            <label for="adminnote" class="control-label">Note</label><textarea
+                                                id="adminnote" name="adminnote" class="form-control"
+                                                rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 5px;" class="row">
+                                        <span id="writeroot"></span>
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="button" id="moreFields"
+                                                value="Create Multiple DC" />
+                                        </div>
+                                        <br>
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="submit" value="Print"
+                                                onclick="window.print()" />
+                                        </div>
+                                        <div id="copyoutput" style="display: none;"></div>
+                                        <div class="col-md-4">
+                                            <button class="form-control" type="submit">Save</button>
+                                        </div>
+                                        <input style="display: none;" name="count" id="count">
+                                    </div>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        var count = 0;
+        function count() {
+            count++;
+            document.getElementById('count').value = (count / 3);
+            console.log('count = ', count);
+        }
+    </script>
+
+    <!-- <script type="text/javascript">
+        $(function () {
+            $('#company').multiselect({
+                includeSelectAllOption: true
+            });
+        });
+    </script> -->
+
+    <!-- ----------------------------------------------Script to replicate the flieds---------------------------------------     -->
+
+    <script>
+        var counter = 0;
+        jQuery('#moreFields').click('change', function moreFields() {
+            counter++;
+            document.getElementById('count').value = counter;
+            var newFields = document.getElementById('readroot').cloneNode(true);
+            newFields.id = '';
+            newFields.style.display = 'block';
+            var newField = newFields.childNodes;
+            for (var i = 0; i < newField.length; i++) {
+                var theName = newField[i].name
+                if (theName)
+                    newField[i].name = theName + counter;
+            }
+            var insertHere = document.getElementById('writeroot');
+            insertHere.parentNode.insertBefore(newFields, insertHere);
+        })
+    </script>
+
+    <!-- ----------------------------------------------Selection of product details(unit , rate , qty)--------------------------------------------     -->
+
+    <script>
+        var result;
+        jQuery('#product').click('change', function () {
+            var cat_name = $('#product option:selected').val();
+            jQuery.post('http://localhost:3000/quotation/select_details',
+                { product: cat_name },
+                function (result, status, jqXHR) {
+                    var formoption = "";
+                    var formoption2 = "";
+                    var formoption3 = "";
+                    var preamount = "";
+                    for (var i in result.details) {
+                        var id = result.details[i].quantity;
+                        formoption += result.details[i].quantity;
+                        formoption2 += result.details[i].unit;
+                        formoption3 += result.details[i].rate;
+                        preamount += (formoption * formoption2 * formoption3);
+                    }
+                    $('#qty').empty();
+                    $('#qty').val(formoption).val();
+                    $('#unit').empty();
+                    $('#unit').val(formoption2).val();
+                    $('#rate').empty();
+                    $('#rate').val(formoption3).val();
+                    $('#amount').empty();
+                    $('#amount').val(preamount).val();
+                }
+            );
+        })
+    </script>
+
+    <!-- ----------------------------------------------Selection of company-------------------------------------------------------     -->
+
+    <script>
+        var result;
+        jQuery('#customer').click('change', function () {
+            var cat_name = $('#customer option:selected').val();
+            console.log('cat_name =', cat_name);
+            jQuery.post('http://localhost:3000/quotation/select_company',
+                { name: cat_name },
+                function (result, status, jqXHR) {
+                    console.log(result.company);
+                    var formoption = "";
+                    for (var i in result.company) {
+                        var id = result.company[i].Company;
+                        console.log('address =', result.company[i].Company);
+                        formoption += "<option value='" + result.company[i].Company + "'>" + result.company[i].Company + "</option>";
+                    }
+                    $('#company').empty();
+                    $('#company').append(formoption);
+                }
+            );
+        })
+    </script>
+
+
+    <%- include('footer')%>
