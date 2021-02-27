@@ -26,7 +26,7 @@ router.get('/login', function (req, res, next) {
 router.get('/customer', function (req, res, next) {
   knex('customer').select('*').then(result => {
     console.log('result=', result);
-    res.render('customer', { title: 'Laxmi Graphics', result: result });  
+    res.render('customer', { title: 'Laxmi Graphics', result: result });
   })
 });
 
@@ -137,7 +137,7 @@ router.get('/customer_delete/(:id)', function (req, res, next) {
 router.get('/employee', function (req, res, next) {
   knex('employee').select('*').then(result => {
     console.log('result=', result);
-    res.render('employee', { title: 'Laxmi Graphics', result: result });   
+    res.render('employee', { title: 'Laxmi Graphics', result: result });
   })
 });
 
@@ -242,7 +242,7 @@ router.get('/employee_delete/(:id)', function (req, res, next) {
 router.get('/vendor', function (req, res, next) {
   knex('vendor').select('*').then(result => {
     console.log('result=', result);
-    res.render('vendor', { title: 'Laxmi Graphics', result: result });   
+    res.render('vendor', { title: 'Laxmi Graphics', result: result });
   })
 });
 

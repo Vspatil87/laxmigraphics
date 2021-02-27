@@ -11,6 +11,7 @@
     "body-parser": "^1.19.0",
     "bookshelf": "^1.2.0",
     "bower": "^1.8.12",
+    "connect-flash": "^0.1.1",
     "convert-html-to-pdf": "^1.0.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
@@ -18,9 +19,11 @@
     "datatables.net-dt": "^1.10.23",
     "dateformat": "^4.5.0",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "dynamic-html-pdf": "^1.0.2",
     "ejs": "~2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "git": "^0.1.5",
     "html-to-pdf": "^0.1.11",
     "http-errors": "~1.6.3",
@@ -35,6 +38,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.5.1",
+    "role": "^1.1.1",
     "window": "^4.2.7"
   }
 }
