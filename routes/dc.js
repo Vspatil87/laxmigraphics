@@ -15,13 +15,16 @@ router.use(cors());
 // 1. Router for fetching data to DC 
 
 router.get('/dc', function (req, res, next) {
-    knex('dc').limit('1').max('dc_no as q').then(dc_no => {
-        knex('customer').select('*').then(result => {
-            knex('product').select('*').then(product_name => {
-                res.render('dc', { product_name: product_name, dc_no: dc_no[0].q, result: result, title: 'Laxmi Graphics' });
-                // res.render('dc', { product_name: product_name, result: result, title: 'Laxmi Graphics' });
+    knex('dc').select('*').then(dc_res => {
+        knex('dc').limit('1').max('dc_no as q').then(dc_no => {
+            knex('customer').select('*').then(result => {
+                knex('product').select('*').then(product_name => {
+                    res.render('dc', { dc_res:dc_res , product_name: product_name, dc_no: dc_no[0].q, result: result, title: 'Laxmi Graphics' });
+                    // res.render('dc', { product_name: product_name, result: result, title: 'Laxmi Graphics' });
+                })
             })
         })
+        console.log('dc_res = ' , dc_res);
     })
 });
 
@@ -67,6 +70,19 @@ router.post('/insert_dc', function (req, res, next) {
             //     console.log('insertquo = ', insertdc);
             // })
         })
+})
+
+// 3. Router to delete dc 
+
+router.get('/dc_delete/(:id)', function (req, res, next) {
+    var user = { id: req.params.id };
+    console.log('id = ' , user);
+    {
+        knex('dc').where('dc_no', user).del()
+            .then(() => {
+                // res.redirect('/dc/dc');
+            })
+    }
 })
 
 module.exports = router;

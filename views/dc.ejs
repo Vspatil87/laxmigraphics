@@ -23,8 +23,6 @@
 
             <!-- Default box -->
 
-            <script src="jquery.min.js"></script>
-            <script src="jquery.multiselect.js"></script>
             <!-- /.row -->
             <div class="row">
                 <div class="col-12">
@@ -85,11 +83,22 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div id="multiselect">
-                                                    <label>Company</label>
-                                                    <select id="company" name='Company' class="form-control">
-                                                    </select>
-                                                </div>
+                                                <label>Company</label>
+                                                <select id="company" name='Company' class="form-control"
+                                                    multiple="multiple">
+                                                </select>
+                                                <!-- <div class="multiselect">
+                                                    <div class="selectBox" onclick="showCheckboxes()">
+                                                        <select id="company" style="margin-top:7px;"
+                                                            class="form-control ">
+                                                            <option id="company" class="form-control">Send To...
+                                                            </option>
+                                                        </select>
+                                                        <div class="overSelect"></div>
+                                                    </div>
+                                                    <div id="checkboxes" style="display: none;">
+                                                    </div>
+                                                </div> -->
                                                 <br>
                                                 <br>
                                                 <div class="form-group">
@@ -132,7 +141,7 @@
                                         </thead>
                                         <tbody>
                                             <% for(var srno=1 , i=0 ; i < 5; i++ , srno++){%>
-                                                <tr>
+                                                <tr id="readroot2">
                                                     <td>
                                                         <div>
                                                             <!-- <input name="sr_no" value="<%= srno%>" /> -->
@@ -160,14 +169,19 @@
                                                                 class="material-icons">&#xE254;</i></a>
                                                         <a class="delete" title="Delete"
                                                             onclick="return confirm('Are You sure?')"
-                                                            data-toggle="tooltip"
-                                                            href="../product/product_delete/<%= result[i].product_id%>"><i
+                                                            data-toggle="tooltip" href="../dc/dc_delete/<%= srno %>"><i
                                                                 class="material-icons">&#xE872;</i></a>
                                                     </td>
                                                 </tr>
                                                 <%}%>
                                         </tbody>
                                     </table>
+                                    <div class="table table-head-fixed text-nowrap" id="table">
+                                        <span id="writeroot2"></span>
+                                        <div>
+                                            <input class="form-control" type="button" id="moreFields2" value="ADD" />
+                                        </div>
+                                    </div>
                                     <div>
                                         <div style="text-align: center;" class="form-group"
                                             app-field-wrapper="adminnote">
@@ -202,14 +216,32 @@
         </section>
     </div>
 
-    <script>
+    <script type="text/javascript">
+        $(function () {
+            $('#company').multiselect({
+                includeSelectAllOption: true
+            });
+            // $('#company').click(function () {
+            //     alert($('#company').val());
+            // })
+        });
+    </script>
+    <!-- <script>
+        $('#company').multiselect({
+            columns: 1,
+            placeholder: 'Select Languages'
+        });
+        $selectedOptions = $_POST['company'];
+    </script> -->
+
+    <!-- <script>
         var count = 0;
         function count() {
             count++;
             document.getElementById('count').value = (count / 3);
             console.log('count = ', count);
         }
-    </script>
+    </script> -->
 
     <!-- <script type="text/javascript">
         $(function () {
@@ -236,6 +268,26 @@
                     newField[i].name = theName + counter;
             }
             var insertHere = document.getElementById('writeroot');
+            insertHere.parentNode.insertBefore(newFields, insertHere);
+        })
+    </script>
+
+
+    <script>
+        var counter = 0;
+        jQuery('#moreFields2').click('change', function moreFields() {
+            counter++;
+            document.getElementById('count').value = counter;
+            var newFields = document.getElementById('readroot2').cloneNode(true);
+            newFields.id = '';
+            newFields.style.display = 'block';
+            var newField = newFields.childNodes;
+            for (var i = 0; i < newField.length; i++) {
+                var theName = newField[i].name
+                if (theName)
+                    newField[i].name = theName + counter;
+            }
+            var insertHere = document.getElementById('writeroot2');
             insertHere.parentNode.insertBefore(newFields, insertHere);
         })
     </script>

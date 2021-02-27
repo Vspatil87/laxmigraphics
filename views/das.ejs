@@ -1,0 +1,494 @@
+<%- include('header')%>
+
+
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm"></p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i></p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm"></p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i></p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm"></p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> </p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header"></span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i>
+            <span class="float-right text-muted text-sm"></span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i>
+            <span class="float-right text-muted text-sm"></span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i>
+            <span class="float-right text-muted text-sm"></span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer"></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>
+                  <%= customer %>
+                </h3>
+
+                <p>Customers</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="/users/customer" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>
+                  <%= employee %>
+                </h3>
+                <p>Employee</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="/users/employee" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>
+                  <%= vendor %>
+                </h3>
+                <p>Vendor</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="/users/vendor" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>
+                  <%= product %>
+                </h3>
+                <p>Products</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="/product/product" class="small-box-footer">More info <i
+                  class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-7 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div style="height: 53%; overflow-y: auto;" class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Dues
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/dashboard/invoice_due" data-toggle="tab">Invoice</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#sales-chart" data-toggle="tab"></a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <!-- <div class="card-body"> -->
+              <div class="tab-content p-0">
+                <!-- Morris chart - Sales -->
+                <table style="height:100px;overflow-y:auto;" id="table" class="table">
+                  <thead>
+                    <th>Invoice No</th>
+                    <th>Due Date</th>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0 ; i < invoice.length ; i++){%>
+                      <tr>
+                        <td>
+                          <%= invoice[i].invoice_no %>
+                        </td>
+                        <td>
+                          <%= invoice[i].due_date %>
+                        </td>
+                        <%}%>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- </div> -->
+            </div>
+            <script>
+              $(document).ready(function () {
+                $('#table').dataTable({
+                  "bPaginate": false,
+                  "bLengthChange": false,
+                  "bFilter": true,
+                  "bInfo": false,
+                  "bAutoWidth": false
+                });
+              });
+            </script>
+            <br>
+            <div class="card">
+              <div class="card-header">
+                <h3 style="color: red;" class="card-title">
+                  <i class="ion ion-clipboard mr-1"></i>
+                  To Do List
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body ">
+                <ul class="todo-list" data-widget="todo-list">
+                  <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                      <i class="fas fa-ellipsis-v"></i>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                      <label for="todoCheck1"></label>
+                    </div>
+                    <!-- todo text -->
+                    <span class="text"><input type="text" class="form-control" /> </span>
+                    <!-- Emphasis label -->
+                    <small class="badge badge-danger"><i class="far fa-clock"></i> <input type="time"
+                        class="form-control" /> </small>
+                    <!-- General tools such as edit or delete-->
+                  </li>
+                  <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                      <i class="fas fa-ellipsis-v"></i>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                      <label for="todoCheck1"></label>
+                    </div>
+                    <!-- todo text -->
+                    <span class="text"><input type="text" class="form-control" /> </span>
+                    <!-- Emphasis label -->
+                    <small class="badge badge-primary"><i class="far fa-clock"></i> <input type="time"
+                        class="form-control" /> </small>
+                    <!-- General tools such as edit or delete-->
+                  </li>
+                  <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                      <i class="fas fa-ellipsis-v"></i>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                      <label for="todoCheck1"></label>
+                    </div>
+                    <!-- todo text -->
+                    <span class="text"><input type="text" class="form-control" /> </span>
+                    <!-- Emphasis label -->
+                    <small class="badge badge-warning"><i class="far fa-clock"></i> <input type="time"
+                        class="form-control" /> </small>
+                    <!-- General tools such as edit or delete-->
+                  </li>
+                  <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                      <i class="fas fa-ellipsis-v"></i>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                      <label for="todoCheck1"></label>
+                    </div>
+                    <!-- todo text -->
+                    <span class="text"><input type="text" class="form-control" /> </span>
+                    <!-- Emphasis label -->
+                    <small class="badge badge-success"><i class="far fa-clock"></i> <input type="time"
+                        class="form-control" /> </small>
+                    <!-- General tools such as edit or delete-->
+                  </li>
+                  <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                      <i class="fas fa-ellipsis-v"></i>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                      <label for="todoCheck1"></label>
+                    </div>
+                    <!-- todo text -->
+                    <span class="text"><input type="text" class="form-control" /> </span>
+                    <!-- Emphasis label -->
+                    <small class="badge badge-primary"><i class="far fa-clock"></i> <input type="time"
+                        class="form-control" /> </small>
+                    <!-- General tools such as edit or delete-->
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5 connectedSortable">
+            <div id="chartDiv" style="width:100%; height:450px; margin:0 auto;"></div>
+            <br>
+            <!-- Map card -->
+            <!-- /.card -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>
+                  <%= category%>
+                </h3>
+                <p>Available Category</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="/category/category" class="small-box-footer">More info <i
+                  class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <br>
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>
+                  <%= subcategory%>
+                </h3>
+                <p>Available SubCategory</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="/category/sub_category" class="small-box-footer">More info <i
+                  class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <br>
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>
+                  <%= inquiry%>
+                </h3>
+                <p>Inquiries</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="/inquiry/customer_inquiry" class="small-box-footer">More info <i
+                  class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <div class="small-box badge-primary">
+              <div class="inner">
+                <h3>
+                  <%= quotation%>
+                </h3>
+                <p>Total Quoation Count</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="/quotation/quotation" class="small-box-footer">More info <i
+                  class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            <!-- Calendar -->
+
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <input type="button" id=inquiry value="<%= inquiry%>" />
+  <input type="button" id=sales value="<%= %>" />
+
+  <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
+  <script src="js/index.js"></script>
+
+  <script>
+    var a = document.getElementById('inquiry').value;
+    console.log("inquiry = ", a);
+    JSC.Chart('chartDiv', {
+      type: 'vertical column',
+      title_label_text: 'Inquiry And Sales Graph',
+
+      // annotations: [{
+      //   label_text: '',
+      //   position: 'bottom left'
+      // }],
+      series: [
+        {
+          name: 'Inquiries',
+          points: [
+            { x: 'Inquiry', y: parseInt(a) },
+            // { x: 'Inquiry', y: 32 }
+          ],
+
+        }, {
+          name: 'Sales',
+          points: [
+            { x: 'Sales', y: 20 },
+            // { x: 'Sales', y: 22 }
+          ]
+        }
+      ]
+    });
+  </script>
+  <%- include('footer')%>

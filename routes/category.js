@@ -23,7 +23,7 @@ router.get('/category', function (req, res, next) {
 // 2. Router to fetch the add category form 
 
 router.get('/add_category', function (req, res, next) {
-    res.render('/category/category_add', { title: 'Laxmi Graphics' });
+    res.render('category_add', { title: 'Laxmi Graphics' });
 });
 
 // 3. Router to post the added category info at database
@@ -44,7 +44,7 @@ router.post('/add_category', function (req, res, next) {
 
 // 4. Router to delete category 
 
-router.get('/category/category_delete/(:id)', function (req, res, next) {
+router.get('/category_delete/(:id)', function (req, res, next) {
     var user = { id: req.params.id };
     console.log('user = ', user.id)
     {
@@ -85,7 +85,6 @@ router.post('/category_update/:id', function (req, res, next) {
     knex('category').update(user_update).where('Uid', req.params.id).then(result => {
         console.log('category_result = ', result);
         res.redirect('/category/category')
-
     })
 })
 

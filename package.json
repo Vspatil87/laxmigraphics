@@ -6,6 +6,10 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "bookshelf": "^1.2.0",
     "bower": "^1.8.12",
     "convert-html-to-pdf": "^1.0.1",
     "cookie-parser": "~1.4.4",
@@ -16,16 +20,20 @@
     "debug": "~2.6.9",
     "dynamic-html-pdf": "^1.0.2",
     "ejs": "~2.6.1",
-    "express": "~4.16.1",
+    "express": "^4.16.4",
     "git": "^0.1.5",
     "html-to-pdf": "^0.1.11",
     "http-errors": "~1.6.3",
     "jquery-multiselect": "^1.0.0",
     "jspdf": "^2.3.0",
-    "knex": "^0.21.16",
+    "jwt-simple": "^0.5.6",
+    "knex": "^0.21.18",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
     "pg": "^8.5.1",
     "window": "^4.2.7"
   }

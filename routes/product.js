@@ -255,7 +255,7 @@ router.post('/select_category', function (req, res, next) {
         })
 })
 
-// 7. Router to select and fetch the product from product table using sub category
+// 8. Router to select and fetch the product from product table using sub category
 
 router.post('/select_product', function (req, res, next) {
     console.log('selected_product_name=', req.body.name)

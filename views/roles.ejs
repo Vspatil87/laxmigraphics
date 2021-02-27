@@ -1,0 +1,93 @@
+<%- include('header')%>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Roles</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Roles</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Roles</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap" id="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr.No</th>
+                                        <th>Role ID</th>
+                                        <th>Person Name</th>
+                                        <th>Person Role</th>
+                                        <th>More</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var srno=1 , i=0 ; i < result.length; i++ , srno++){%>
+                                        <tr>
+                                            <td>
+                                                <%= srno%>
+                                            </td>
+                                            <td>
+                                                <%= result[i].role_id %>
+                                            </td>
+                                            <td>
+                                                <%= result[i].person_name%>
+                                            </td>
+                                            <td>
+                                                <%= result[i].person_role%>
+                                            </td>
+                                            <td>
+                                                <a href="/roles/edit_roles/ <%= result[i].role_id %>" class="edit"
+                                                    title="Edit" data-toggle="tooltip"><i
+                                                        class="material-icons">&#xE254;</i></a>
+                                                <a href="../roles/roles_delete/<%= result[i].role_id%>" class="delete"
+                                                    title="Delete" onclick="return confirm('Are you Sure?')"
+                                                    data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
+                                        </tr>
+                                        <%}%>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="col-sm-3">
+                <a href="/roles/add_roles">
+                    <button type="button" class="btn btn-block btn-outline-primary">New Role</button>
+                </a>
+            </div>
+            <!-- /.card -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include('footer')%>

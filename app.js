@@ -13,6 +13,8 @@ var inquiryrouter = require('./routes/inquiry');
 var quotationrouter = require('./routes/quotation');
 var invoicerouter = require('./routes/invoice');
 var dcrouter = require('./routes/dc');
+var dashboardrouter = require('./routes/dashboard');
+var rolesrouter = require('./routes/roles');
 
 
 var app = express();
@@ -36,6 +38,8 @@ app.use('/inquiry', inquiryrouter);
 app.use('/quotation', quotationrouter);
 app.use('/invoice', invoicerouter);
 app.use('/dc', dcrouter);
+app.use('/dashboard', dashboardrouter);
+app.use('/roles', rolesrouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
