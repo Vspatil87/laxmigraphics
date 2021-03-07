@@ -13,7 +13,7 @@ router.use(cors());
 
 router.get('/das', function (req, res, next) {
     knex('sub_category').count('sub_cat_id as sca').then(subcategory => {
-        knex('customer').count('Uid as c').then(customer => {
+        knex('customer').count('customer_id as c').then(customer => {
             knex('vendor').count('Uid as v').then(vendor => {
                 knex('product').count('product_id as p').then(product => {
                     knex('employee').count('Uid as e').then(employee => {

@@ -1,0 +1,367 @@
+<%- include('header')%>
+    <style>
+        .nav-item {
+            display: none;
+        }
+    </style>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Customer Inquiry</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Customer Inquiry</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- jquery validation -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">New Customer inquiry <small></small></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="quickForm" action="/amanager/amanager" method="POST">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Customer Name</label>
+                                        <div style="width: 100%;" class="editdropdown">
+                                            <input class="form-control" type="text" />
+                                            <select onchange="this.previousElementSibling.value = this.value;"
+                                                name='selected_customer' class="form-control" id="customer">
+                                                <% for(var i=0 ; i < cresult.length ; i++){%>
+                                                    <option selected value="<%= cresult[i].Customer_name%>">
+                                                        <%= cresult[i].Customer_name%>
+                                                    </option>
+                                                    <%}%>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company</label>
+                                        <select id="company" name='Company' class="form-control">
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>GST number</label>
+                                        <select id="GST" name="VAT_number" class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label>Contact No</label>
+                                        <select id="phone" name="Mobile_number" class="form-control"> </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email ID</label>
+                                        <select id="email" name='Website' class="form-control"> </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company Address</label>
+                                        <select id="caddress" name='Address' class="form-control"> </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <select id="city" name='City' class="form-control"> </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <select id="state" name='State' class="form-control"> </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Zip_code</label>
+                                        <select id="zipcode" name='Zip_code' class="form-control"> </select>
+                                    </div>
+                                    <div class="form-group mb-0">
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (left) -->
+                    <!-- right column -->
+                    <div class="col-md-6">
+
+                    </div>
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+        <!-- </div> -->
+        <!-- /.content-wrapper -->
+
+
+        <!-- ------------------------------------------------------Script to append customer details to form-------------------------------------------------------------     -->
+
+        <script>
+            var result;
+            console.log('name = ', name);
+            jQuery('#customer').click('change', function () {
+                var cat_name = $('#customer option:selected').val();
+                console.log('cat_name =', cat_name);
+                jQuery.post('http://localhost:3000/inquiry/customer_select',
+                    { name: cat_name },
+                    function (result, status, jqXHR) {
+                        var formoption = "";
+                        var formoption2 = "";
+                        var formoption3 = "";
+                        var formoption4 = "";
+                        var formoption5 = "";
+                        var formoption6 = "";
+                        var formoption7 = "";
+                        var formoption8 = "";
+                        console.log('inquiry = ', result);
+                        var i = 0;
+                        for (var i in result.resultofcustomer) {
+                            var id = result.resultofcustomer[i].Company;
+                            console.log("customer_company =", id)
+                            formoption += "<option value='" + result.resultofcustomer[i].Company + "'>" + result.resultofcustomer[i].Company + "</option>";
+                            formoption2 += "<option value='" + result.resultofcustomer[i].VAT_number + "'>" + result.resultofcustomer[i].VAT_number + "</option>";
+                            formoption3 += "<option value='" + result.resultofcustomer[i].Phone + "'>" + result.resultofcustomer[i].Phone + "</option>";
+                            formoption4 += "<option value='" + result.resultofcustomer[i].Website + "'>" + result.resultofcustomer[i].Website + "</option>";
+                            formoption5 += "<option value='" + result.resultofcustomer[i].Address + "'>" + result.resultofcustomer[i].Address + "</option>";
+                            formoption6 += "<option value='" + result.resultofcustomer[i].City + "'>" + result.resultofcustomer[i].City + "</option>";
+                            formoption7 += "<option value='" + result.resultofcustomer[i].State + "'>" + result.resultofcustomer[i].State + "</option>";
+                            formoption8 += "<option value='" + result.resultofcustomer[i].Zip_code + "'>" + result.resultofcustomer[i].Zip_code + "</option>";
+                        }
+                        $('#company').empty();
+                        $('#company').append(formoption);
+                        $('#GST').empty();
+                        $('#GST').append(formoption2);
+                        $('#phone').empty();
+                        $('#phone').append(formoption3);
+                        $('#email').empty();
+                        $('#email').append(formoption4);
+                        $('#caddress').empty();
+                        $('#caddress').append(formoption5);
+                        $('#city').empty();
+                        $('#city').append(formoption6);
+                        $('#state').empty();
+                        $('#state').append(formoption7);
+                        $('#zipcode').empty();
+                        $('#zipcode').append(formoption8);
+                    }
+                );
+            })
+        </script>
+
+        <!-- /.content-wrapper -->
+        <!-- Content Wrapper. Contains page content -->
+        <!-- <div class="content-wrapper"> -->
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Product Details</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Product Details</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- jquery validation -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">New Product <small></small></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <!-- <div id="readroot"> -->
+                            <form id="quickForm" action="/amanager/amanager_product" method="POST">
+                                <div class="card-body" id="readroot">
+                                    <div class="form-group">
+                                        <label>Select Main category</label>
+                                        <select name='Name' class="form-control" id="category">
+                                            <% for(var i=0 ; i < presult.length ; i++){%>
+                                                <option value="<%=presult[i].Name%>">
+                                                    <%= presult[i].Name%>
+                                                </option>
+                                                <%}%>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sub Category</label>
+                                        <select id="subcategory" name='selected_sub_category' class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Product</label>
+                                        <select id="product" name='selected_product' class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Additional Category</label>
+                                        <input type="text" name="additional_category" class="form-control"
+                                            placeholder="enter additional category ..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Specification</label>
+                                        <input type="text" name="specification" class="form-control"
+                                            placeholder="enter specification ..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Size</label>
+                                        <input type="text" name="size" class="form-control" placeholder="enter size ..."
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Unit</label>
+                                        <input type="text" name="unit" class="form-control" placeholder="enter unit ..."
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rate</label>
+                                        <input type="text" name="rate" class="form-control" placeholder="enter rate ..."
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="text" name="quantity" class="form-control"
+                                            placeholder="enter quantity ..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input type="text" name="amount" class="form-control"
+                                            placeholder="enter price ..." required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- /.card-body -->
+                                    <div class="card-footer , col-md-6">
+                                        <span id="writeroot"></span>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <!-- <button id="moreFields" type="button" class="btn btn-primary">ADD +</button> -->
+                                    </div>
+                                    <div class="card-footer , col-md-6">
+                                        <a href="/amanager/vquotation">
+                                            <button class="btn btn-primary" type="button">VIEW QUOTATION</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- </div> -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (left) -->
+                    <!-- right column -->
+                    <div class="col-md-6">
+
+                    </div>
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- ----------------------------------------------Script to select category---------------------------------------------     -->
+
+    <script>
+        var result;
+        jQuery('#category').click('change', function () {
+            var cat_name = $('#category option:selected').val();
+            console.log('cat_name =', cat_name);
+            jQuery.post('http://localhost:3000/product/select_category',
+                { name: cat_name },
+                function (result, status, jqXHR) {
+                    console.log(result.sel);
+                    var formoption = "";
+                    for (var i in result.sel) {
+                        var id = result.sel[i].sub_category;
+                        console.log("sub_catId=", id)
+                        formoption += "<option value='" + result.sel[i].sub_category + "'>" + result.sel[i].sub_category + "</option>";
+                    }
+                    $('#subcategory').empty();
+                    $('#subcategory').append(formoption);
+                }
+            );
+        })
+    </script>
+
+    <!-- ----------------------------------------------Script to select product---------------------------------------------     -->
+
+    <script>
+        var result;
+        jQuery('#subcategory').click('change', function () {
+            var pro_name = $('#subcategory option:selected').val();
+            console.log('subcat_name =', pro_name);
+            jQuery.post('http://localhost:3000/product/select_product',
+                { name: pro_name },
+                function (result, status, jqXHR) {
+                    console.log(result.product);
+                    var formoption2 = "";
+                    for (var i in result.product) {
+                        var id = result.product[i].product_name;
+                        console.log("sub_catId=", id)
+                        formoption2 += "<option value='" + result.product[i].product_name + "'>" + result.product[i].product_name + "</option>";
+                    }
+                    $('#product').empty();
+                    $('#product').append(formoption2);
+                }
+            );
+        })
+    </script>
+
+    <!-- ----------------------------------------------Script to replicate the flieds---------------------------------------     -->
+
+    <script>
+        var counter = 0;
+        jQuery('#moreFields').click('change', function moreFields() {
+            counter++;
+            var newFields = document.getElementById('readroot').cloneNode(true);
+            newFields.id = '';
+            newFields.style.display = 'block';
+            var newField = newFields.childNodes;
+            for (var i = 0; i < newField.length; i++) {
+                var theName = newField[i].name
+                if (theName)
+                    newField[i].name = theName + counter;
+            }
+            var insertHere = document.getElementById('writeroot');
+            insertHere.parentNode.insertBefore(newFields, insertHere);
+        })
+    // window.onauxclick = moreFields;
+    </script>
+
+    <%- include('footer')%>

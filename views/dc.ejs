@@ -84,21 +84,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Company</label>
-                                                <select id="company" name='Company' class="form-control"
-                                                    multiple="multiple">
+                                                <select id="company" name='Company' class="form-control">
                                                 </select>
-                                                <!-- <div class="multiselect">
-                                                    <div class="selectBox" onclick="showCheckboxes()">
-                                                        <select id="company" style="margin-top:7px;"
-                                                            class="form-control ">
-                                                            <option id="company" class="form-control">Send To...
-                                                            </option>
-                                                        </select>
-                                                        <div class="overSelect"></div>
-                                                    </div>
-                                                    <div id="checkboxes" style="display: none;">
-                                                    </div>
-                                                </div> -->
                                                 <br>
                                                 <br>
                                                 <div class="form-group">
@@ -144,27 +131,23 @@
                                                 <tr id="readroot2">
                                                     <td>
                                                         <div>
-                                                            <!-- <input name="sr_no" value="<%= srno%>" /> -->
                                                             <%= srno%>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <input onchange="count()" type="text" name="product"
                                                             class="form-control">
-                                                        <!-- <%= result[i].product_name %> -->
                                                     </td>
                                                     <td>
                                                         <input onchange="count()" type="text" name="size"
                                                             class="form-control">
-                                                        <!-- <%= result[i].size%> -->
                                                     </td>
                                                     <td>
                                                         <input onchange="count()" type="text" name="quantity"
                                                             class="form-control">
-                                                        <!-- <%= result[i].quantity %> -->
                                                     </td>
                                                     <td>
-                                                        <a href="/product/edit_product/<%= result[i].product_id%>"
+                                                        <a href="/product/edit_product/<%= srno%>"
                                                             class="edit" title="Edit" data-toggle="tooltip"><i
                                                                 class="material-icons">&#xE254;</i></a>
                                                         <a class="delete" title="Delete"
@@ -216,16 +199,16 @@
         </section>
     </div>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(function () {
             $('#company').multiselect({
                 includeSelectAllOption: true
             });
-            // $('#company').click(function () {
-            //     alert($('#company').val());
-            // })
+            $('#company').click(function () {
+                alert($('#company').val());
+            })
         });
-    </script>
+    </script> -->
     <!-- <script>
         $('#company').multiselect({
             columns: 1,

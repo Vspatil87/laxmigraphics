@@ -119,11 +119,13 @@ router.post('/update_customer_inquiry/:id', function (req, res, next) {
 // 7. Router to select and fetch the data from customer table
 
 router.post('/customer_select', function (req, res, next) {
-    var id = req.body.name;
-    console.log('id = ', id);
-    knex('customer').select('*').where('Customer_name', id).then((resultofcustomer) => {
-        res.json({ resultofcustomer });
-        console.log('resultofcustomer = ', resultofcustomer);
+    var name = req.body.name;
+    knex('customer').select('customer_id').where('customer_name', name).then(id => {
+        // console.log('id = ', id[0].customer_id);
+        knex('company').select('*').where('customer_id', id[0].customer_id).then((resultofcustomer) => {
+            res.json({ resultofcustomer });
+            console.log('resultofcustomer = ', resultofcustomer);
+        })
     })
 })
 

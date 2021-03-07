@@ -72,7 +72,7 @@ router.post('/select_saddress', function (req, res, next) {
 
 router.post('/insert_quotation', function (req, res, next) {
   var count = req.body.count;
-  console.log('customer_name = ', req.body.number);
+  console.log('customer_name = ', req.body.product_name);
   knex('customer').select('*').where('Company', req.body.Company)
     .then(customer => {
       var quotation = {
@@ -101,6 +101,7 @@ router.post('/insert_quotation', function (req, res, next) {
     })
 
   for (let i = 0; i <= count; i++) {
+    console.log('product = ' , req.body.product_name[i]);
     knex('quotation_attributes').insert({
       'estimate_no': req.body.number,
       'item': req.body.product_name[i],

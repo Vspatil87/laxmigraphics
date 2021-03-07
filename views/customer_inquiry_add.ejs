@@ -1,6 +1,5 @@
 <%- include('header')%>
 
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -43,8 +42,8 @@
                                             <select onchange="this.previousElementSibling.value = this.value;"
                                                 name='selected_customer' class="form-control" id="customer">
                                                 <% for(var i=0 ; i < result.length ; i++){%>
-                                                    <option selected value="<%=result[i].Customer_name%>">
-                                                        <%= result[i].Customer_name%>
+                                                    <option selected value="<%=result[i].customer_name%>">
+                                                        <%= result[i].customer_name%>
                                                     </option>
                                                     <%}%>
                                             </select>
@@ -52,17 +51,17 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Company</label>
-                                        <select id="company" name='Company' class="form-control">
-                                        </select>
+                                        <div>
+                                            <select class="form-control" id="company" name='Company'>
+                                            </select>
+                                        </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label>GST number</label>
                                         <select id="GST" name="VAT_number" class="form-control">
                                         </select>
                                     </div>
                                     <div class="form-group">
-
                                         <label>Contact No</label>
                                         <select id="phone" name="Mobile_number" class="form-control"> </select>
                                     </div>
@@ -132,6 +131,7 @@
                     var formoption6 = "";
                     var formoption7 = "";
                     var formoption8 = "";
+                    var formoption9 = "";
                     console.log('inquiry = ', result);
                     var i = 0;
                     for (var i in result.resultofcustomer) {
@@ -146,7 +146,9 @@
                         formoption7 += "<option value='" + result.resultofcustomer[i].State + "'>" + result.resultofcustomer[i].State + "</option>";
                         formoption8 += "<option value='" + result.resultofcustomer[i].Zip_code + "'>" + result.resultofcustomer[i].Zip_code + "</option>";
                     }
+                    formoption9 += "<option value='" + '' + "'>" + '' + "</option>";
                     $('#company').empty();
+                    // $('#company').append(formoption9);
                     $('#company').append(formoption);
                     $('#GST').empty();
                     $('#GST').append(formoption2);

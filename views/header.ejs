@@ -19,18 +19,8 @@
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"
     defer></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script> scc = 'js/jquery.min.js' </script>
-  <script src="jquery.min.js"></script>
-  <script src="jquery.multiselect.js"></script>
-  <script src="multiselect/jquery.multiselect.js"></script>
-  <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
-  <script src="jQuery.ui.datepicker.js"></script>
-  <script src="jquery.ui.datepicker.mobile.js"></script>
-
-
   <!-- --------------------------------------------dashboard--------------------------------------------- -->
-  
+
   <style>
     /* Chart.js */
     @keyframes chartjs-render-animation {
@@ -165,6 +155,74 @@
       background-color: #1e90ff;
     }
   </style>
+  <style>
+    .combobox select,
+    .combobox select option {
+      color: #000000;
+    }
+
+    .combobox select:invalid,
+    .combobox select option[value=""] {
+      color: grey;
+    }
+
+    .combobox {
+      position: relative;
+      /* left: 80px; */
+      top: 6px;
+    }
+
+    .combobox>div {
+      position: relative;
+      font-size: 1em;
+    }
+
+    .combobox select {
+      font-size: inherit;
+      color: transparent;
+      padding: 0;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      /* border: 1px solid blueviolet; */
+    }
+
+    .combobox input {
+      position: absolute;
+      top: 1px;
+      left: 0px;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+      padding: 0px;
+      margin: 0px;
+      height: calc(100% - 1px);
+      width: calc(100% - 20px);
+      /* border: 1px solid blueviolet; */
+      border-right: none;
+      border-top: none;
+    }
+
+    .combobox>div:after {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      height: 100%;
+      width: 20px;
+      box-sizing: border-box;
+      content: "▼";
+      /* border: 1px solid blueviolet; */
+      pointer-events: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .combobox select:focus,
+    .combobox input:focus {
+      outline: none;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -219,6 +277,14 @@
                 <i class="nav-icon fas fa-table"></i>
                 <p>
                   Customer
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/users/company" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Company
                 </p>
               </a>
             </li>

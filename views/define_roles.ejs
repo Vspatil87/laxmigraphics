@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laxmi Graphics </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"
+        defer></script>
+
+</head>
+
+<body style="padding-left: 20%; padding-right: 20%;">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Select Role</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Select Role</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- jquery validation -->
+                    <div class="card card-primary">
+                        <form id="quickForm" action="/category/category" method="POST">
+                            <div class="card-body">
+                                <div class="dropdown bootstrap-select ajax-search bs3 , editdropdown"
+                                    style="width: 100%;">
+                                    <label>Select Role</label>
+                                    <select class="form-control">
+                                        <% for(var i=0 ; i < roles.length ; i++){%>
+                                            <option selected value="<%=roles[i].person_role%>">
+                                                <%= roles[i].person_role%>
+                                            </option>
+                                            <%}%>
+                                    </select>
+                                </div>
+                                <br>
+                                <label>Password</label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="pwd1" placeholder="Password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="text" name="password" class="form-control"
+                                        placeholder="Enter Password ..." required>
+                                </div> -->
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Enter</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <footer>
+        <strong>Copyright &copy; 2021 <a href="#">Vaibhav Consulting Services</a>.</strong> All rights reserved.
+    </footer>
+</body>
+
+</html>

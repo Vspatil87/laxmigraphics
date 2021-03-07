@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Roles</h1>
+                        <h1>Company</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Roles</li>
+                            <li class="breadcrumb-item active">Company</li>
                         </ol>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Roles</h3>
+                            <h3 class="card-title">Your Company</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -39,13 +39,21 @@
                                 <thead>
                                     <tr>
                                         <th>Sr.No</th>
-                                        <th>Role ID</th>
-                                        <th>User Name</th>
-                                        <th>Person Role</th>
-                                        <th>Person Password</th>
+                                        <th>Uid</th>
+                                        <th>Customer Name</th>
+                                        <th>Company</th>
+                                        <th>GST Number</th>
+                                        <th>Contact No</th>
+                                        <th>Email ID</th>
+                                        <th>Company Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Zip Code</th>
                                         <th>More</th>
+
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <% for(var srno=1 , i=0 ; i < result.length; i++ , srno++){%>
                                         <tr>
@@ -53,25 +61,44 @@
                                                 <%= srno%>
                                             </td>
                                             <td>
-                                                <%= result[i].role_id %>
+                                                <%= result[i].Uid %>
                                             </td>
                                             <td>
-                                                <%= result[i].user_name%>
+                                                <%= result[i].customer_name %>
                                             </td>
                                             <td>
-                                                <%= result[i].person_role%>
+                                                <%= result[i].Company%>
                                             </td>
                                             <td>
-                                                <%= result[i].person_password%>
+                                                <%= result[i].VAT_number%>
                                             </td>
                                             <td>
-                                                <a href="/roles/edit_roles/ <%= result[i].role_id %>" class="edit"
-                                                    title="Edit" data-toggle="tooltip"><i
-                                                        class="material-icons">&#xE254;</i></a>
-                                                <a href="../roles/roles_delete/<%= result[i].role_id%>" class="delete"
-                                                    title="Delete" onclick="return confirm('Are you Sure?')"
-                                                    data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                                <%= result[i].Phone%>
                                             </td>
+                                            <td>
+                                                <%= result[i].Website %>
+                                            </td>
+                                            <td>
+                                                <%= result[i].Address %>
+                                            </td>
+                                            <td>
+                                                <%= result[i].City %>
+                                            </td>
+                                            <td>
+                                                <%= result[i].State %>
+                                            </td>
+                                            <td>
+                                                <%= result[i].Zip_code %>
+                                            </td>
+                                            <td>
+                                                <a href="/users/edit/<%= result[i].Uid%>" class="edit" title="Edit"
+                                                    data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                                <a class="delete" title="Delete"
+                                                    onclick="return confirm('Are You sure?')" data-toggle="tooltip"
+                                                    href="../users/company_delete/<%= result[i].Uid%>"><i
+                                                        class="material-icons">&#xE872;</i></a>
+                                            </td>
+
                                         </tr>
                                         <%}%>
                                 </tbody>
@@ -84,11 +111,13 @@
             </div>
             <!-- /.row -->
             <div class="col-sm-3">
-                <a href="/roles/add_roles">
-                    <button type="button" class="btn btn-block btn-outline-primary">New Role</button>
+                <a href="/users/add_company">
+                    <button type="button" class="btn btn-block btn-outline-primary">Add Company</button>
                 </a>
             </div>
+
             <!-- /.card -->
+
         </section>
         <!-- /.content -->
     </div>

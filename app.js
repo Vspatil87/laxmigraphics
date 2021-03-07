@@ -15,6 +15,10 @@ var invoicerouter = require('./routes/invoice');
 var dcrouter = require('./routes/dc');
 var dashboardrouter = require('./routes/dashboard');
 var rolesrouter = require('./routes/roles');
+var telecallerrouter = require('./routes/telecaller');
+var receptionrouter = require('./routes/reception');
+var operationmanagerrouter = require('./routes/omanager');
+var accountsmanagerrouter = require('./routes/amanager');
 
 
 var app = express();
@@ -28,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
-app.use('/assets',express.static(path.join(__dirname, 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -40,14 +44,18 @@ app.use('/invoice', invoicerouter);
 app.use('/dc', dcrouter);
 app.use('/dashboard', dashboardrouter);
 app.use('/roles', rolesrouter);
+app.use('/telecaller', telecallerrouter);
+app.use('/reception', receptionrouter);
+app.use('/omanager', operationmanagerrouter);
+app.use('/amanager', accountsmanagerrouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

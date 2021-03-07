@@ -3,10 +3,13 @@ var router = express.Router();
 const knex = require('../knex_files');
 var dateFormat = require("dateformat");
 var cors = require('cors');
+var session = require('express-session');
+var sessionid;
 
 const { select, join, userParams, as } = require('../knex_files');
 const { max } = require('moment');
 const { query } = require('express');
+const { result } = require('lodash');
 
 router.use(cors());
 
@@ -16,10 +19,13 @@ router.get('/table', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
-  res.render('LG_login', { title: 'Laxmi Graphics' });
+  knex('roles').select('*').then(roles => {
+    console.log('roles = ', roles[0].person_role);
+    res.render('LG_login', { role: roles, title: 'Laxmi Graphics' });
+  })
 });
 
-// ----------------------------------------------customer--------------------------------------------------
+// ----------------------------------------------company--------------------------------------------------
 
 // 1. Router for fetching data to table 
 
@@ -39,26 +45,12 @@ router.get('/add_customer', function (req, res, next) {
 // 3. Router to post the added customer info at database
 
 router.post('/add_customer', function (req, res, next) {
-  const Customer_name = req.body.Customer_name;
-  const Company = req.body.Company;
-  const VAT_number = req.body.VAT_number;
-  const Phone = req.body.Mobile_number;
-  const Website = req.body.Website;
-  const Address = req.body.Address;
-  const City = req.body.City;
-  const State = req.body.State;
-  const Zip_code = req.body.Zip_code;
+  const Name = req.body.customer_name;
+  console.log('name = ', Name);
   var customer_info = {
-    Customer_name: Customer_name,
-    Company: Company,
-    VAT_number: VAT_number,
-    Phone: Phone,
-    Website: Website,
-    Address: Address,
-    City: City,
-    State: State,
-    Zip_code: Zip_code
+    customer_name: Name
   }
+
   knex('customer').insert(customer_info)
     .then(result => {
       console.log("result=", result);
@@ -66,65 +58,174 @@ router.post('/add_customer', function (req, res, next) {
     })
 })
 
-// 4. Router to edit customer 
-
-router.get('/edit/:id', function (req, res, next) {
-  var user = { id: req.params.id };
-  console.log('edit_user = ', user.id);
-  knex('customer').select('*').where('Uid', user.id).first().then(user => {
-    console.log('user=', user.Company);
-    if (user) {
-      res.render('customer_update', {
-
-        Uid: user.Uid,
-        Customer_name: user.Customer_name,
-        Company: user.Company,
-        VAT_number: user.VAT_number,
-        Mobile_number: user.Phone,
-        Website: user.Website,
-        Address: user.Address,
-        City: user.City,
-        State: user.State,
-        Zip_code: user.Zip_code
-      })
-    }
-    else {
-      req.flash('error', 'Customers not found with id = ' + req.params.id)
-      res.redirect('customer')
-    }
-  })
-})
-
-// 5. Router to update customer 
-
-router.post('/customer_update/:id', function (req, res, next) {
-  var user_update = {
-    Customer_name: req.body.Customer_name,
-    Company: req.body.Company,
-    VAT_number: req.body.VAT_number,
-    Phone: req.body.Mobile_number,
-    Website: req.body.Website,
-    Address: req.body.Address,
-    City: req.body.City,
-    State: req.body.State,
-    Zip_code: req.body.Zip_code
-  }
-  knex('customer').update(user_update).where('Uid', req.params.id).then(result => {
-    console.log('result = ', result);
-    res.redirect('/users/customer')
-  })
-})
-
-// 6. Router to delete customer 
+// 4. Router to delete customer 
 
 router.get('/customer_delete/(:id)', function (req, res, next) {
   var user = { id: req.params.id };
   console.log('user = ', user.id)
-
   {
-    knex('customer').where('Uid', user.id).del()
+    knex('customer').where('customer_id', user.id).del()
       .then(() => {
         res.redirect('/users/customer');
+      })
+  }
+})
+
+// 5. Router to edit category 
+
+router.get('/edit_customer/:id', function (req, res, next) {
+  var user = { id: req.params.id };
+  console.log('edit_user = ', user.id);
+  knex('customer').select('*').where('customer_id', user.id).first().then(user => {
+    console.log('user=', user.Name);
+    if (user) {
+      res.render('customer_update', {
+        customer_id: user.customer_id,
+        customer_name: user.customer_name
+      })
+    }
+    else {
+      req.flash('error', 'Customer not found with id = ' + req.params.id)
+      res.redirect('/users/customer')
+    }
+  })
+})
+
+// 6. Router to update category 
+
+router.post('/customer_update/:id', function (req, res, next) {
+
+  var user_update = {
+    customer_name: req.body.customer_name
+  }
+  knex('customer').update(user_update).where('customer_id', req.params.id).then(result => {
+    console.log('customer_result = ', result);
+    res.redirect('/users/customer')
+  })
+})
+
+
+// ----------------------------------------------company--------------------------------------------------
+
+// 1. Router for fetching data to table 
+
+router.get('/company', function (req, res, next) {
+  knex('company').join('customer', 'company.customer_id', '=', 'customer.customer_id')
+    .select('*')
+    .then(result => {
+      // console.log('cat', cat);
+      res.render('company', { title: 'Laxmi Graphics', result: result })
+    })
+});
+
+// 2. Router to fetch the add company form
+
+router.get('/add_company', function (req, res, next) {
+  knex('customer').select('*').then(result => {
+    res.render('company_add', { result: result, title: 'Laxmi Graphics' });
+  })
+});
+
+// 3. Router to post the added company info at database
+
+router.post('/add_company', function (req, res, next) {
+  knex('customer').select('customer_id').where('customer_name', req.body.customer).then(id => {
+    console.log('id = ', id[0].customer_id);
+    const customer_id = id[0].customer_id;
+    const Company = req.body.Company;
+    const VAT_number = req.body.VAT_number;
+    const Phone = req.body.Mobile_number;
+    const Website = req.body.Website;
+    const Address = req.body.Address;
+    const City = req.body.City;
+    const State = req.body.State;
+    const Zip_code = req.body.Zip_code;
+    var company_info = {
+      customer_id: customer_id,
+      Company: Company,
+      VAT_number: VAT_number,
+      Phone: Phone,
+      Website: Website,
+      Address: Address,
+      City: City,
+      State: State,
+      Zip_code: Zip_code
+    }
+    knex('company').insert(company_info)
+      .then(result => {
+        res.redirect('company')
+      })
+  })
+})
+
+// 4. Router to edit company 
+
+router.get('/edit/:id', function (req, res, next) {
+  var selected_id = { id: req.params.id };
+  console.log('edit_user = ', selected_id.id);
+  knex('company').select('*')
+    .where('Uid', selected_id.id)
+    .then(user => {
+      knex('customer').select('*').then(customer => {
+        console.log('user=', customer[0].customer_name);
+        console.log('company_cus = ', user[0].customer_id);
+        if (user) {
+          res.render('company_update', {
+            customer: customer,
+            company_cus: user[0].customer_id,
+            Uid: user[0].Uid,
+            // customer_name: customer[0].customer_name,
+            Company: user[0].Company,
+            VAT_number: user[0].VAT_number,
+            Mobile_number: user[0].Phone,
+            Website: user[0].Website,
+            Address: user[0].Address,
+            City: user[0].City,
+            State: user[0].State,
+            Zip_code: user[0].Zip_code
+          })
+        }
+        else {
+          req.flash('error', 'companys not found with id = ' + req.params.id)
+          res.redirect('company')
+        }
+      })
+    })
+})
+
+// 5. Router to update company 
+
+router.post('/company_update/:id', function (req, res, next) {
+  knex('customer').select('customer_id').where('customer_name', req.body.customer).then(id => {
+    console.log("id = ", id[0].customer_id);
+    var user_update = {
+      customer_id: id[0].customer_id,
+      Company: req.body.Company,
+      VAT_number: req.body.VAT_number,
+      Phone: req.body.Mobile_number,
+      Website: req.body.Website,
+      Address: req.body.Address,
+      City: req.body.City,
+      State: req.body.State,
+      Zip_code: req.body.Zip_code
+    }
+    knex('company').update(user_update).where('Uid', req.params.id).then(result => {
+      console.log('result = ', result);
+      res.redirect('/users/company')
+    })
+  })
+})
+
+// 6. Router to delete company 
+
+router.get('/company_delete/(:id)', function (req, res, next) {
+  var user = { id: req.params.id };
+  console.log('user = ', user.id)
+
+  {
+    knex('company').where('Uid', user.id).del()
+      .then(() => {
+        res.redirect('/users/company');
       })
   }
 })
